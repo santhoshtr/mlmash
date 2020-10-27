@@ -10,12 +10,12 @@ const routes = [
   },
   {
     path: "/letter/:letter",
-    name: "Letter",
+    name: "letter",
     component: Letter,
     props: true,
   }, {
     path: "/conjunct/:letter",
-    name: "Letter",
+    name: "conjunct",
     component: Letter,
     props: true,
   },{
