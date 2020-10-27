@@ -5,7 +5,13 @@
       <div class="letter-svg" ref="letter" v-html="letterSVG" />
     </div>
     <div class="actions">
-      <button @click="animate">Play</button>
+      <button @click="animate">Write</button>
+      <audio
+        controls
+        :src="audioSrc"
+        :ref="audioSrc"
+        :id="`player-${letter}`"
+      ></audio>
     </div>
   </section>
 </template>
@@ -21,10 +27,13 @@ export default {
   },
   computed: {
     letterSVG: (vm) => require(`!html-loader!@/assets/svgs/${vm.letter}.svg`),
+    audioSrc: (vm) => `/speech/${vm.letter}.mp3`
   },
   watch: {
     letter: function() {
-      this.animate();
+      setTimeout(() => {
+        this.animate();
+      }, 300);
     },
   },
   methods: {
@@ -46,6 +55,7 @@ export default {
       path.style.strokeDashoffset = "0";
     },
     animate() {
+      console.log("..");
       const bgPaths = this.$refs.backgroundLetter.querySelectorAll("path");
       for (let i = 0; i < bgPaths.length; i++) {
         bgPaths[i].style.stroke = "#607d8b";
@@ -85,6 +95,14 @@ export default {
   }
 }
 .actions {
-  position: none;
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 800;
+    padding: 0 8px;
+    margin: 0 8px;
+    border: 1px solid var(--primary-color);
+  }
+  display: flex;
 }
 </style>

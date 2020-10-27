@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <h1>{{ letter }}</h1>
-    <letter :letter="letter"/>
+    <letter :id="letter" :letter="letter"/>
   </div>
 </template>
 
