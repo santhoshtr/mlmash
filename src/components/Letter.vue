@@ -10,8 +10,13 @@
         controls
         :src="audioSrc"
         :ref="audioSrc"
+        v-if="audioSrc"
         :id="`player-${letter}`"
       ></audio>
+    </div>
+    <h3>Examples</h3>
+     <div class="examples">
+       <div class="example" v-for="example in examples" :key="example">{{example}}</div>
     </div>
   </section>
 </template>
@@ -24,10 +29,12 @@ export default {
   }),
   props: {
     letter: String,
+    lesson: Object,
   },
   computed: {
     letterSVG: (vm) => require(`!html-loader!@/assets/svgs/${vm.letter}.svg`),
-    audioSrc: (vm) => `/speech/${vm.letter}.mp3`
+    audioSrc: (vm) => vm.lesson?.pronunciation,
+    examples: (vm) => vm.lesson?.examples
   },
   watch: {
     letter: function() {
@@ -44,8 +51,8 @@ export default {
       // Set up the starting positions
       path.style.strokeDasharray = length + " " + length;
       path.style.strokeDashoffset = length;
-      path.style.strokeWidth = "4";
-      path.style.stroke = "#01579b";
+      path.style.strokeWidth = "8";
+      path.style.stroke = "#00476b";
       // Trigger a layout so styles are calculated & the browser
       // picks up the starting position before animating
       path.getBoundingClientRect();
@@ -55,7 +62,6 @@ export default {
       path.style.strokeDashoffset = "0";
     },
     animate() {
-      console.log("..");
       const bgPaths = this.$refs.backgroundLetter.querySelectorAll("path");
       for (let i = 0; i < bgPaths.length; i++) {
         bgPaths[i].style.stroke = "#607d8b";
@@ -105,4 +111,13 @@ export default {
   }
   display: flex;
 }
+
+ .examples {
+     display: flex;
+     flex-direction: column;
+     .example{
+       font-size: 1.2em;
+       padding: 4px;
+     }
+ }
 </style>

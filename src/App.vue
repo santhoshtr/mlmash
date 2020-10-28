@@ -26,11 +26,13 @@
 </template>
 
 <script>
+import malayalam from "./assets/malayalam.json";
+
 export default {
   name: "App",
   data: () => ({
-    letters: ["അ", "ആ", "ഇ", "ഉ", "ഋ", "ക", "ച"],
-    conjuncts: ["പ്പ", "ശ്ര", "ശൂ"],
+    letters: malayalam.letters,
+    conjuncts: malayalam.conjuncts
   }),
 };
 </script>
@@ -99,7 +101,7 @@ main {
   flex-direction: row;
   padding: 0;
   margin: 0;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 footer {
@@ -118,6 +120,8 @@ footer {
   padding: 8px;
   border-radius: 2px;
   border-right: 1px solid var(--primary-color);
+  overflow-y: scroll;
+  max-height: 90vh;
   h3 {
     margin: 0;
   }
