@@ -7,87 +7,92 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="428.87201"
-   height="264.27393"
+   width="497.3858"
+   height="256.63235"
    id="svg2992"
    version="1.1"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="യ.svg">
+   sodipodi:docname="ഫ.svg">
   <defs
      id="defs5498">
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect848"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect4143"
+       id="path-effect4148"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect6255"
+       id="path-effect4141-5"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect6255-3"
+       id="path-effect4141-5-7"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0"
+       id="path-effect4141-5-7-0"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-3"
+       id="path-effect4141-5-7-0-7"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-7"
+       id="path-effect4141-5-7-0-7-0"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-7-2"
+       id="path-effect4141-5-7-0-7-1"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2"
+       id="path-effect4141-5-7-0-7-9"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2-3"
+       id="path-effect4141-5-7-0-7-8"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2-7"
+       id="path-effect4141-5-7-0-7-8-2"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2-0"
+       id="path-effect4141-5-7-0-7-4"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2-0-6"
+       id="path-effect4141-5-7-0-7-4-2"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2-0-9"
+       id="path-effect4141-5-7-0-7-8-7"
        is_visible="true"
        lpeversion="0" />
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect4143-0-2-0-8"
+       id="path-effect4141-5-7-0-7-8-7-5"
+       is_visible="true"
+       lpeversion="0" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4141-5-7-0-7-03"
+       is_visible="true"
+       lpeversion="0" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4141-5-7-0-7-8-4"
        is_visible="true"
        lpeversion="0" />
   </defs>
@@ -103,19 +108,17 @@
      showgrid="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="1.7737298"
-     inkscape:cx="195.69928"
-     inkscape:cy="114.43953"
+     inkscape:zoom="0.227"
+     inkscape:cx="470.91529"
+     inkscape:cy="738.12145"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:current-layer="layer1"
      inkscape:window-maximized="1"
-     inkscape:document-rotation="0"
-     inkscape:snap-grids="true"
-     inkscape:snap-to-guides="true">
+     inkscape:document-rotation="0">
     <sodipodi:guide
        orientation="horizontal"
-       position="-838.16441,-372.7472"
+       position="-755.54538,-367.36736"
        id="guide5596" />
     <inkscape:grid
        type="xygrid"
@@ -128,12 +131,16 @@
        units="px"
        dotted="true"
        spacingy="4"
-       originx="-838.16441"
-       originy="-810.97888" />
+       originx="-755.54538"
+       originy="-824.00034" />
     <sodipodi:guide
        orientation="0,1"
-       position="-1918.1644,683.2528"
+       position="-1795.5454,632.63261"
        id="guide2985" />
+    <sodipodi:guide
+       position="-1292.9903,-1090.7154"
+       orientation="0,1"
+       id="guide4195" />
   </sodipodi:namedview>
   <metadata
      id="metadata5594">
@@ -151,14 +158,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-838.16441,237.02112)">
+     transform="translate(-755.54538,223.99967)">
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:35;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 996,-148 c -1.17698,-21.80684 8.8509,-43.9231 26.0295,-57.40722 17.1785,-13.48411 41.0437,-17.97191 61.9469,-11.64897 20.1135,6.08407 36.7268,21.5614 46.2643,40.28587 9.5375,18.72448 12.3617,40.42562 10.2478,61.3326 -3.747,37.058501 -23.1542,72.265681 -52.4446,95.275349 C 1058.7535,2.8472977 1019.9831,13.366077 983.07019,8.3851381 952.6226,4.2766134 923.74349,-10.12699 901.74435,-31.573985 c -21.99913,-21.446996 -37.07672,-49.773613 -43.14362,-79.892185 -4.78225,-23.74104 -3.8324,-49.3932 7.33829,-70.88094 5.58534,-10.74387 13.68505,-20.25766 23.77123,-26.95809 10.08618,-6.70043 22.18083,-10.50448 34.28461,-10.15038 15.69949,0.45929 30.71107,7.87857 42.15289,18.6382 11.44183,10.75964 19.55144,24.66858 25.38155,39.25264 7.76764,19.4308 11.6874,40.13556 16.5371,60.49171 4.8497,20.356145 10.8123,40.813819 22.1059,58.43049 12.7181,19.838859 32.0143,35.3160849 54.0134,43.764358 21.999,8.448273 46.5778,9.880229 69.4965,4.3971001 27.167,-6.49951016 51.8377,-22.7036971 68.9265,-44.8004351 17.0887,-22.096738 26.5487,-49.903895 26.9009,-77.835383 0.477,-37.82938 -16.0887,-75.55149 -44.2654,-100.79756"
-       id="path4141-0-4"
+       d="m 822.04551,15.132683 c -15.98575,-5.4371285 -29.92938,-16.6724057 -38.64179,-31.13617 -8.71241,-14.463764 -12.12517,-32.042424 -9.45775,-48.715498 2.66742,-16.673074 11.39409,-32.30962 24.18409,-43.333345 12.78999,-11.02373 29.54287,-17.34806 46.42703,-17.52653 16.38036,-0.17315 32.76469,5.42739 45.61168,15.5911 12.84698,10.163723 22.06713,24.819816 25.66759,40.800521 3.60046,15.980704 1.55616,33.174684 -5.69106,47.865638 -7.24721,14.690954 -19.64685,26.7765311 -34.51885,33.644559 l 356.96205,0.652325 2.2628,-84.276924 c 3.1245,-31.726689 -6.6709,-64.537059 -26.6775,-89.358079 -20.0065,-24.82103 -49.9885,-41.36035 -81.6551,-45.04436 -16.9191,-1.96832 -34.3497,-0.326 -50.3103,5.62303 -15.9605,5.94903 -30.2939,16.2599 -40.8506,29.62726 -10.5566,13.36737 -17.1916,29.60662 -20.1931,46.37328 -3.0015,16.76665 -2.4126,33.942718 -1.5973,50.956394 l 3.6113,75.3615038"
+       id="path4139-0-3-5-0"
+       inkscape:path-effect="#path-effect4141-5-7-0-7"
+       inkscape:original-d="m 822.04551,15.132683 c 0,0 -24.96519,-139.216453 22.51158,-140.711543 47.09614,-1.4831 31.06936,137.901818 31.06936,137.901818 118.98535,1.007 237.97395,0.69464 356.96205,0.652325 l 2.2628,-84.276924 c -5.2689,-123.839689 -50.7957,-133.619429 -108.3326,-134.402439 -58.0516,-0.79001 -117.0008,56.79341 -112.9513,132.579964 l 3.6113,75.3615038"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="caaaassscac"
-       inkscape:path-effect="#path-effect848"
-       inkscape:original-d="m 996,-148 c -3.63199,-45.45648 51.4307,-76.42207 87.9764,-69.05619 37.9944,7.65786 64.1506,63.62023 56.5121,101.61847 C 1127.3312,-49.986637 1049.7472,11.721478 983.07019,8.3851381 925.54491,5.5067331 866.06158,-54.354189 858.60073,-111.46617 c -5.45109,-41.72752 31.87331,-106.0251 65.39413,-107.98941 33.52082,-1.96431 75.83369,9.38335 67.53444,57.89084 -4.06514,23.75995 9.9819,82.613766 38.643,118.9222 29.8524,37.8176205 79.7641,54.088211 123.5099,48.1614581 50.9384,-9.8315415 89.3723,-71.1604351 95.8274,-122.6358181 4.566,-36.41113 -44.2654,-100.79756 -44.2654,-100.79756" />
+       sodipodi:nodetypes="cacccacc" />
   </g>
 </svg>

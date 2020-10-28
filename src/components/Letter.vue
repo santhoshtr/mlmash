@@ -15,8 +15,10 @@
       ></audio>
     </div>
     <h3>Examples</h3>
-     <div class="examples">
-       <div class="example" v-for="example in examples" :key="example">{{example}}</div>
+    <div class="examples">
+      <div class="example" v-for="example in examples" :key="example">
+        {{ example }}
+      </div>
     </div>
   </section>
 </template>
@@ -34,17 +36,24 @@ export default {
   computed: {
     letterSVG: (vm) => require(`!html-loader!@/assets/svgs/${vm.letter}.svg`),
     audioSrc: (vm) => vm.lesson?.pronunciation,
-    examples: (vm) => vm.lesson?.examples
+    examples: (vm) => vm.lesson?.examples,
   },
   watch: {
     letter: function() {
       setTimeout(() => {
         this.animate();
-      }, 300);
+      }, 100);
     },
   },
   methods: {
     animatePath(path) {
+      // Go!
+      path.style.strokeDashoffset = "0";
+    },
+    setBackgroundPathProps(path){
+      path.style.stroke = "#607d8b";
+    },
+    setPathProps(path) {
       const length = path.getTotalLength();
       // Clear any previous transition
       path.style.transition = path.style.WebkitTransition = "none";
@@ -58,16 +67,15 @@ export default {
       path.getBoundingClientRect();
       // Define our transition
       path.style.transition = path.style.WebkitTransition = `stroke-dashoffset ${this.animatationTime}s ease-in-out`;
-      // Go!
-      path.style.strokeDashoffset = "0";
     },
     animate() {
       const bgPaths = this.$refs.backgroundLetter.querySelectorAll("path");
       for (let i = 0; i < bgPaths.length; i++) {
-        bgPaths[i].style.stroke = "#607d8b";
+        this.setBackgroundPathProps(bgPaths[i])
       }
       const paths = this.$refs.letter.querySelectorAll("path");
       for (let i = 0; i < paths.length; i++) {
+        this.setPathProps(paths[i])
         if (i == 0) {
           this.animatePath(paths[i]);
           continue;
@@ -112,12 +120,12 @@ export default {
   display: flex;
 }
 
- .examples {
-     display: flex;
-     flex-direction: column;
-     .example{
-       font-size: 1.2em;
-       padding: 4px;
-     }
- }
+.examples {
+  display: flex;
+  flex-direction: column;
+  .example {
+    font-size: 1.2em;
+    padding: 4px;
+  }
+}
 </style>
