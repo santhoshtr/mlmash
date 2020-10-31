@@ -5,7 +5,7 @@
       <div class="letter-svg" ref="letter" v-html="letterSVG" />
     </div>
     <div class="actions">
-      <button @click="animate">Write</button> 
+      <button @click="animate">Write</button>
       <audio
         controls
         :src="audioSrc"
@@ -39,7 +39,7 @@ export default {
     examples: (vm) => vm.lesson?.examples,
   },
   watch: {
-    letter: function() {
+    letter: function () {
       setTimeout(() => {
         this.animate();
       }, 100);
@@ -50,7 +50,7 @@ export default {
       // Go!
       path.style.strokeDashoffset = "0";
     },
-    setBackgroundPathProps(path){
+    setBackgroundPathProps(path) {
       path.style.stroke = "#607d8b";
     },
     setPathProps(path) {
@@ -71,11 +71,11 @@ export default {
     animate() {
       const bgPaths = this.$refs.backgroundLetter.querySelectorAll("path");
       for (let i = 0; i < bgPaths.length; i++) {
-        this.setBackgroundPathProps(bgPaths[i])
+        this.setBackgroundPathProps(bgPaths[i]);
       }
       const paths = this.$refs.letter.querySelectorAll("path");
       for (let i = 0; i < paths.length; i++) {
-        this.setPathProps(paths[i])
+        this.setPathProps(paths[i]);
         if (i == 0) {
           this.animatePath(paths[i]);
           continue;
@@ -92,6 +92,9 @@ export default {
 };
 </script>
 <style lang="less">
+.letter {
+  width: 0;
+}
 .letter-svg {
   svg {
     height: 100%;
@@ -102,7 +105,7 @@ export default {
 .letter-container {
   position: relative;
   height: 40vh;
-  width: 100%;
+  width: 908px; //width of longest character "ഞ്ഞ"
   .letter-svg {
     position: absolute;
     top: 0;
@@ -133,12 +136,22 @@ export default {
   }
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .letter-container {
-     transform: scale(0.5);
-     transform-origin: 0% 0% 0px;
+    transform: scale(0.7);
+    transform-origin: 0% 0% 0px;
   }
 }
 
+@media (max-width: 768px) {
+  .letter-container {
+    transform: scale(0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-container {
+    transform: scale(0.35);
+  }
+}
 </style>
