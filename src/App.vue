@@ -32,15 +32,15 @@ export default {
   name: "App",
   data: () => ({
     letters: malayalam.letters,
-    conjuncts: malayalam.conjuncts
+    conjuncts: malayalam.conjuncts,
   }),
   created() {
-   if (sessionStorage.redirect) {
+    if (sessionStorage.redirect) {
       const redirect = sessionStorage.redirect;
       delete sessionStorage.redirect;
       this.$router.push(redirect);
     }
-  }
+  },
 };
 </script>
 
@@ -120,13 +120,11 @@ footer {
 
 .nav {
   order: -1;
-  flex: 0 0 10em;
+  flex: 0 0 10%;
 }
 
 .nav {
   padding: 8px;
-  border-radius: 2px;
-  border-right: 1px solid var(--primary-color);
   overflow-y: scroll;
   max-height: 90vh;
   h3 {
@@ -145,14 +143,46 @@ footer {
       color: var(--primary-color--dark);
     }
   }
-  li:hover {
-    border-left: 2px solid var(--primary-color);
-  }
 }
 
 .content {
   flex: 1;
   padding: 8px;
   margin: 0;
+}
+
+@media (min-width: 601px) {
+  .nav {
+    border-right: 1px solid var(--primary-color);
+  }
+  li:hover {
+    border-left: 2px solid var(--primary-color);
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    flex-direction: column;
+  }
+  .content {
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .nav {
+    overflow: hidden;
+    border-bottom: 1px solid var(--primary-color);
+
+    ul {
+      margin: 0;
+    }
+    li {
+      display: inline-flex;
+    }
+    li:hover {
+      border-bottom: 2px solid var(--primary-color);
+    }
+  }
 }
 </style>

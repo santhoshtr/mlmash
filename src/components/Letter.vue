@@ -101,7 +101,8 @@ export default {
 }
 .letter-container {
   position: relative;
-  height: 50vh;
+  height: 500px;
+  width: 1000px;
   .letter-svg {
     position: absolute;
     top: 0;
@@ -128,4 +129,13 @@ export default {
     padding: 4px;
   }
 }
+
+
+@media (max-width: 600px) {
+  .letter-container {
+     transform: scale(0.5);
+     transform-origin: 0% 0% 0px;
+  }
+}
+
 </style>
