@@ -5,7 +5,7 @@
       <div class="letter-svg" ref="letter" v-html="letterSVG" />
     </div>
     <div class="actions">
-      <button @click="animate">Write</button>
+      <button @click="animate">Write</button> 
       <audio
         controls
         :src="audioSrc"
@@ -102,7 +102,7 @@ export default {
 .letter-container {
   position: relative;
   height: 40vh;
-  width: 200vw;
+  width: 100%;
   .letter-svg {
     position: absolute;
     top: 0;
@@ -117,6 +117,9 @@ export default {
     padding: 0 8px;
     margin: 0 8px;
     border: 1px solid var(--primary-color);
+  }
+  button:first-child {
+    margin-left: 0;
   }
   display: flex;
 }
