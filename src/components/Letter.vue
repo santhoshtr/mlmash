@@ -101,8 +101,8 @@ export default {
 }
 .letter-container {
   position: relative;
-  height: 500px;
-  width: 1000px;
+  height: 40vh;
+  width: 200vw;
   .letter-svg {
     position: absolute;
     top: 0;

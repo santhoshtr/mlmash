@@ -165,6 +165,7 @@ footer {
     flex-direction: column;
   }
   .content {
+    flex: 0;
     h1 {
       margin: 0;
       padding: 0;
@@ -172,6 +173,7 @@ footer {
   }
   .nav {
     overflow: hidden;
+    order: 2;
     border-bottom: 1px solid var(--primary-color);
 
     ul {
