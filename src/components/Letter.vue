@@ -39,7 +39,7 @@ export default {
     examples: (vm) => vm.lesson?.examples,
   },
   watch: {
-    letter: function () {
+    letter: function() {
       setTimeout(() => {
         this.animate();
       }, 100);
@@ -135,20 +135,22 @@ export default {
 
 @media (max-width: 1024px) {
   .letter-container {
-    transform: scale(0.7);
+    transform: scale(0.8);
     transform-origin: 0% 0% 0px;
   }
 }
 
 @media (max-width: 768px) {
   .letter-container {
-    transform: scale(0.5);
+    transform: scale(0.6);
+    transform-origin: 0% 0% 0px;
   }
 }
 
 @media (max-width: 480px) {
   .letter-container {
-    transform: scale(0.35);
+    transform: scale(0.4);
+    transform-origin: 0% 0% 0px;
   }
 }
 </style>
