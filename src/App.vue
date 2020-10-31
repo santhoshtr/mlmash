@@ -112,7 +112,7 @@ main {
 }
 
 footer {
-  min-height: 20vh;
+  min-height: fit-content;
   a {
     color: #ffffff;
   }
