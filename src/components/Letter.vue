@@ -92,9 +92,6 @@ export default {
 };
 </script>
 <style lang="less">
-.letter {
-  width: 0;
-}
 .letter-svg {
   svg {
     height: 100%;
