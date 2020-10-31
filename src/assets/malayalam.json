@@ -7,6 +7,7 @@
         "ഋ",
         "എ",
         "ഏ",
+        "ഒ",
         "ക",
         "ഖ",
         "ഗ",
@@ -97,18 +98,21 @@
             ]
         },
         "എ": {
+            "pronunciation": "/speech/എ.mp3",
             "examples": [
                 "എലി",
                 "എവിടെ"
             ]
         },
         "ഏ": {
+            "pronunciation": "/speech/ഏ.mp3",
             "examples": [
                 "ഏണി",
                 "ഏഴ്"
             ]
         },
         "ഒ": {
+            "pronunciation": "/speech/ഒ.mp3",
             "examples": [
                 "ഒപ്പ്",
                 "ഒരുമ"
