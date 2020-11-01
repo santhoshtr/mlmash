@@ -389,9 +389,17 @@
             ]
         },
         "ര": {
+            "pronunciation": "/speech/ര.mp3",
             "examples": [
                 "രസം",
                 "കരി"
+            ]
+        },
+        "ർ": {
+            "pronunciation": "/speech/ർ.mp3",
+            "examples": [
+                "പയർ",
+                "കൂർക്ക"
             ]
         },
         "രൂ": {
@@ -401,12 +409,14 @@
             ]
         },
         "ല": {
+            "pronunciation": "/speech/ല.mp3",
             "examples": [
                 "വല",
                 "കലി"
             ]
         },
         "വ": {
+            "pronunciation": "/speech/വ.mp3",
             "examples": [
                 "വല",
                 "പാവ"
@@ -419,10 +429,10 @@
             ]
         },
         "ശ": {
+            "pronunciation": "/speech/ശ.mp3",
             "examples": [
                 "ശനി",
-                "ശിശു",
-                "ശാന്തം"
+                "ശിശു"
             ]
         },
         "ശൂ": {
@@ -438,26 +448,31 @@
             ]
         },
         "ഷ": {
+            "pronunciation": "/speech/ഷ.mp3",
             "examples": [
                 "ഭാഷ",
                 "വേഷം"
             ]
         },
         "സ": {
+            "pronunciation": "/speech/സ.mp3",
             "examples": [
                 "സാമ്പാർ",
-                "സ്ഥലം"
+                "സരസം"
             ]
         },
         "ഹ": {
+            "pronunciation": "/speech/ഹ.mp3",
             "examples": [
-                "ഹലോ",
-                "ഹാരം"
+                "ഹിതം",
+                "പലഹാരം"
             ]
         },
         "ള": {
+            "pronunciation": "/speech/ള.mp3",
             "examples": [
-                "വള"
+                "വള",
+                "കളഭം"
             ]
         },
         "ൾ": {
@@ -466,12 +481,14 @@
             ]
         },
         "ഴ": {
+            "pronunciation": "/speech/ഴ.mp3",
             "examples": [
-                "വഴി",
-                "ആഴം"
+                "മഴ",
+                "വഴി"
             ]
         },
         "റ": {
+            "pronunciation": "/speech/റ.mp3",
             "examples": [
                 "കറി",
                 "തറ"
