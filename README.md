@@ -12,6 +12,21 @@ The SVGs are from Manjari font. You may want to scale down the svgs. Use the svg
 * Add sample words for each letter
 * Add pronunciation for each letters as sound samples
 * Anything else the മാഷ് want to teach
+* Create a learning order. For example
+    1. റ ന
+    2. ര ത
+    3. ഠ ണ
+    4. പ വ ഖ ബ ഹ ച ഛ
+    5. ഥ ല ഘ ഫ ഷ എ ഏ
+    6. ഗ ശ ട
+    7. ധ സ ഡ ഢ ഝ
+    8. ദ ഭ ഒ
+    9. ങ ഞ
+    10. ഉ ഇ ജ ള
+    10. ഴ യ ക മ
+    11. ഈ ഊ ഐ ഓ ഔ
+    12. അ ആ ഋ
+
 
 ## Project setup
 
