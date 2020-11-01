@@ -320,9 +320,17 @@
             ]
         },
         "ന": {
+            "pronunciation": "/speech/ന.mp3",
             "examples": [
-                "നല്ല",
+                "നെല്ല്",
                 "ആന"
+            ]
+        },
+        "ൻ": {
+            "pronunciation": "/speech/ൻ.mp3",
+            "examples": [
+                "അവൻ",
+                "വൻപയർ"
             ]
         },
         "ന്ത": {
@@ -332,6 +340,7 @@
             ]
         },
         "പ": {
+            "pronunciation": "/speech/പ.mp3",
             "examples": [
                 "പണം",
                 "പപ്പടം"
@@ -345,15 +354,31 @@
             ]
         },
         "ഫ": {
+            "pronunciation": "/speech/ഫ.mp3",
             "examples": [
-                "ഫലം"
+                "ഫലം",
+                "ഫോൺ"
+            ]
+        },
+        "ബ": {
+            "pronunciation": "/speech/ബ.mp3",
+            "examples": [
+                "ബലം",
+                "ബസ്സ്"
+            ]
+        },
+        "ഭ": {
+            "pronunciation": "/speech/ഭ.mp3",
+            "examples": [
+                "ഭാരതം",
+                "അഭിമാനം"
             ]
         },
         "മ": {
+            "pronunciation": "/speech/മ.mp3",
             "examples": [
                 "മണം",
-                "മലയാളം",
-                "മഞ്ഞ"
+                "മലയാളം"
             ]
         },
         "യ": {
