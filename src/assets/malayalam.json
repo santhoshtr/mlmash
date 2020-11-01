@@ -253,25 +253,28 @@
             ]
         },
         "ഡ": {
+            "pronunciation": "/speech/ഡ.mp3",
             "examples": [
                 "ഡപ്പി",
                 "ഡിഷ്"
             ]
         },
         "ഢ": {
+            "pronunciation": "/speech/ഢ.mp3",
             "examples": [
                 "മൂഢൻ"
             ]
         },
         "ണ": {
+            "pronunciation": "/speech/ണ.mp3",
             "examples": [
                 "പണം",
                 "തുണ"
             ]
         },
         "ൺ": {
+            "pronunciation": "/speech/ൺ.mp3",
             "examples": [
-                "തൂൺ",
                 "ജൂൺ",
                 "കൂൺ"
             ]
@@ -289,18 +292,28 @@
             ]
         },
         "ത": {
+            "pronunciation": "/speech/ത.mp3",
             "examples": [
                 "തറ",
                 "തണുപ്പ്"
             ]
         },
         "ഥ": {
+            "pronunciation": "/speech/ഥ.mp3",
             "examples": [
                 "രഥം",
                 "വീഥി"
             ]
         },
+        "ദ": {
+            "pronunciation": "/speech/ദ.mp3",
+            "examples": [
+                "ദയ",
+                "ദിവസം"
+            ]
+        },
         "ധ": {
+            "pronunciation": "/speech/ധ.mp3",
             "examples": [
                 "ധനം",
                 "ധീരത"
