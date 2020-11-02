@@ -1,10 +1,8 @@
 <template>
   <section class="letter">
-    <div class="letter-container">
-      <div class="letter-svg" ref="backgroundLetter" v-html="letterSVG" />
-      <div class="letter-svg" ref="letter" v-html="letterSVG" />
-    </div>
+
     <div class="actions">
+       <h1>{{ letter }}</h1>
       <button @click="animate">Write</button>
       <audio
         controls
@@ -14,8 +12,12 @@
         :id="`player-${letter}`"
       ></audio>
     </div>
-    <h3>Examples</h3>
+     <div class="letter-container">
+      <div class="letter-svg" ref="backgroundLetter" v-html="letterSVG" />
+      <div class="letter-svg" ref="letter" v-html="letterSVG" />
+    </div>
     <div class="examples">
+        <h3>Examples</h3>
       <div class="example" v-for="example in examples" :key="example">
         {{ example }}
       </div>
@@ -92,6 +94,7 @@ export default {
 };
 </script>
 <style lang="less">
+
 .letter-svg {
   svg {
     height: 100%;
@@ -110,6 +113,14 @@ export default {
   }
 }
 .actions {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  h1 {
+    height: 1.4em;
+    line-height: 1.4;
+    margin: 0;
+  }
   button {
     background-color: var(--primary-color);
     color: white;
@@ -117,18 +128,26 @@ export default {
     padding: 0 8px;
     margin: 0 8px;
     border: 1px solid var(--primary-color);
+    height: 2.4em;
   }
   button:first-child {
     margin-left: 0;
   }
-  display: flex;
+  audio {
+    width: 200px;
+    height: 2.4em;
+
+  }
 }
 
 .examples {
   display: flex;
   flex-direction: column;
+  h3 {
+    margin: 0;
+  }
   .example {
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 4px;
   }
 }
@@ -151,6 +170,7 @@ export default {
   .letter-container {
     transform: scale(0.4);
     transform-origin: 0% 0% 0px;
+    height: 30vh;
   }
 }
 </style>

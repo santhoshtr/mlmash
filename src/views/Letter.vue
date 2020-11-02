@@ -1,6 +1,5 @@
 <template>
   <div class="content">
-    <h1>{{ letter }}</h1>
     <letter :id="letter" :letter="letter" :lesson="lesson" />
   </div>
 </template>
