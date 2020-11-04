@@ -8,19 +8,14 @@
     <router-view />
     <nav class="nav">
       <h3>Letters</h3>
-      <ul>
-        <li v-for="letter in letters" :key="letter">
-          <router-link :to="`/letter/${letter}`">{{ letter }}</router-link>
-        </li>
-      </ul>
+      <div v-for="letter in letters" :key="letter">
+        <router-link :to="`/letter/${letter}`">{{ letter }}</router-link>
+      </div>
+      <br />
       <h3>Conjuncts</h3>
-      <ul>
-        <li v-for="conjunct in conjuncts" :key="conjunct">
-          <router-link :to="`/conjunct/${conjunct}`">{{
-            conjunct
-          }}</router-link>
-        </li>
-      </ul>
+      <div v-for="conjunct in conjuncts" :key="conjunct">
+        <router-link :to="`/conjunct/${conjunct}`">{{ conjunct }}</router-link>
+      </div>
     </nav>
   </main>
 </template>
@@ -48,9 +43,9 @@ export default {
 @import url(https://smc.org.in/fonts/manjari.css);
 
 :root {
-  --primary-color-h: 200;
-  --primary-color-s: 320%;
-  --primary-color-l: 21%;
+  --primary-color-h: 192;
+  --primary-color-s: 100%;
+  --primary-color-l: 41%;
   /* default */
   --primary-color: hsl(
     var(--primary-color-h),
@@ -62,7 +57,7 @@ export default {
   --primary-color--dark: hsl(
     var(--primary-color-h),
     var(--primary-color-s),
-    calc(var(--primary-color-l) - 15%)
+    calc(var(--primary-color-l) - 30%)
   );
 }
 
@@ -78,7 +73,7 @@ body {
   font-family: Helvetica, "Manjari", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: var(--primary-color--dark);
 }
 
 header,
@@ -105,7 +100,7 @@ header {
 main {
   display: flex;
   flex: 1 0 auto;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   min-height: 90vh;
@@ -125,23 +120,24 @@ footer {
 
 .nav {
   padding: 8px;
-  overflow-y: scroll;
-  max-height: 90vh;
+  overflow: auto;
+  max-width: 100vw;
+  border-bottom: 1px solid var(--primary-color--dark);
   h3 {
     margin: 0;
+    color: var(--primary-color);
   }
-  ul {
-    padding: 0;
-    margin: 4px 8px;
+  div {
+    display: inline-flex;
+    padding: 2px 4px;
   }
-  li {
-    list-style: none;
+  a {
     text-decoration: none;
-    padding: 4px;
-    a {
-      text-decoration: none;
-      color: var(--primary-color--dark);
-    }
+    color: var(--primary-color--dark);
+    font-size: 1.2em;
+  }
+  a:hover {
+    color: var(--primary-color);
   }
 }
 
@@ -151,19 +147,7 @@ footer {
   margin: 0;
 }
 
-@media (min-width: 601px) {
-  .nav {
-    border-right: 1px solid var(--primary-color);
-  }
-  li:hover {
-    border-left: 2px solid var(--primary-color);
-  }
-}
-
 @media (max-width: 600px) {
-  main {
-    flex-direction: column;
-  }
   .content {
     flex: 0;
     h1 {
@@ -172,18 +156,8 @@ footer {
     }
   }
   .nav {
-    overflow: hidden;
-    order: 2;
-    border-bottom: 1px solid var(--primary-color);
-
-    ul {
-      margin: 0;
-    }
-    li {
+    h3 {
       display: inline-flex;
-    }
-    li:hover {
-      border-bottom: 2px solid var(--primary-color);
     }
   }
 }

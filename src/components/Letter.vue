@@ -1,8 +1,10 @@
 <template>
   <section class="letter">
-
-    <div class="actions">
-       <h1>{{ letter }}</h1>
+     <div class="letter-container">
+      <div class="letter-svg" ref="backgroundLetter" v-html="letterSVG" />
+      <div class="letter-svg" ref="letter" v-html="letterSVG" />
+    </div>
+        <div class="actions">
       <button @click="animate">Write</button>
       <audio
         controls
@@ -11,10 +13,6 @@
         v-if="audioSrc"
         :id="`player-${letter}`"
       ></audio>
-    </div>
-     <div class="letter-container">
-      <div class="letter-svg" ref="backgroundLetter" v-html="letterSVG" />
-      <div class="letter-svg" ref="letter" v-html="letterSVG" />
     </div>
     <div class="examples">
         <h3>Examples</h3>
@@ -53,7 +51,7 @@ export default {
       path.style.strokeDashoffset = "0";
     },
     setBackgroundPathProps(path) {
-      path.style.stroke = "#607d8b";
+      path.style.stroke = "#002D38";
     },
     setPathProps(path) {
       const length = path.getTotalLength();
@@ -63,7 +61,7 @@ export default {
       path.style.strokeDasharray = length + " " + length;
       path.style.strokeDashoffset = length;
       path.style.strokeWidth = "8";
-      path.style.stroke = "#00476b";
+      path.style.stroke = "#00a7d0";
       // Trigger a layout so styles are calculated & the browser
       // picks up the starting position before animating
       path.getBoundingClientRect();
@@ -94,7 +92,9 @@ export default {
 };
 </script>
 <style lang="less">
-
+.letter{
+  overflow: auto;
+}
 .letter-svg {
   svg {
     height: 100%;
@@ -104,8 +104,8 @@ export default {
 }
 .letter-container {
   position: relative;
-  height: 40vh;
-  width: 908px; //width of longest character "ഞ്ഞ"
+  height: 50vh;
+  min-width: 908px; //width of longest character "ഞ്ഞ"
   .letter-svg {
     position: absolute;
     top: 0;
@@ -154,23 +154,23 @@ export default {
 
 @media (max-width: 1024px) {
   .letter-container {
-    transform: scale(0.8);
+    transform: scale(1.0);
     transform-origin: 0% 0% 0px;
   }
 }
 
 @media (max-width: 768px) {
   .letter-container {
-    transform: scale(0.6);
+    transform: scale(0.8);
     transform-origin: 0% 0% 0px;
   }
 }
 
 @media (max-width: 480px) {
   .letter-container {
-    transform: scale(0.4);
-    transform-origin: 0% 0% 0px;
     height: 30vh;
+    transform: scale(0.5);
+    transform-origin: 0% 0% 0px;
   }
 }
 </style>
