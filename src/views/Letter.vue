@@ -7,17 +7,19 @@
 <script>
 import Letter from "@/components/Letter.vue";
 import malayalam from "../assets/malayalam.json";
+import { computed } from "vue";
 
 export default {
   name: "Home",
   components: {
     Letter,
   },
-   computed :{
-     lesson(){
-       return malayalam.lessons[this.letter];
-     }
-   },
-   props: ["letter"],
+  setup(props) {
+    const lesson = computed(() => malayalam.lessons[props.letter]);
+    return { lesson };
+  },
+  props: {
+    letter: String
+  },
 };
 </script>

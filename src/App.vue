@@ -29,7 +29,7 @@ export default {
     letters: malayalam.letters,
     conjuncts: malayalam.conjuncts,
   }),
-  created() {
+  setup() {
     if (sessionStorage.redirect) {
       const redirect = sessionStorage.redirect;
       delete sessionStorage.redirect;
