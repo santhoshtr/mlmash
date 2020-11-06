@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" ref="root">
     <letter :id="letter" :letter="letter" :lesson="lesson" />
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
-  <section class="letter">
-     <div class="letter-container">
-      <div class="letter-svg" ref="backgroundLetter" v-html="letterSVG" />
-      <div class="letter-svg" ref="letter" v-html="letterSVG" />
+  <section class="letter" ref="root">
+    <div class="letter-container">
+      <div class="letter-svg-background" v-html="letterSVG" />
+      <div class="letter-svg" v-html="letterSVG" />
     </div>
-        <div class="actions">
+    <div class="actions">
       <button @click="animate">Write</button>
       <audio
         controls
@@ -15,7 +15,7 @@
       ></audio>
     </div>
     <div class="examples">
-        <h3>Examples</h3>
+      <h3>Examples</h3>
       <div class="example" v-for="example in examples" :key="example">
         {{ example }}
       </div>
@@ -24,75 +24,55 @@
 </template>
 
 <script>
+import { ref, onMounted, computed, watch } from "vue";
+import {animateLetter} from  "../animateLetter"
+
 export default {
   name: "Letter",
-  data: () => ({
-    animatationTime: 5, // 5s
-  }),
   props: {
     letter: String,
     lesson: Object,
   },
-  computed: {
-    letterSVG: (vm) => require(`!html-loader!@/assets/svgs/${vm.letter}.svg`),
-    audioSrc: (vm) => vm.lesson?.pronunciation,
-    examples: (vm) => vm.lesson?.examples,
-  },
-  watch: {
-    letter: function() {
+  setup(props) {
+    const animatationTime = 5; // 5s
+    const root = ref(null);
+    const letterSVG = computed(() =>
+      require(`!html-loader!@/assets/svgs/${props.letter}.svg`)
+    );
+    const audioSrc = computed(() => props.lesson?.pronunciation);
+    const examples = computed(() => props.lesson?.examples);
+    const letterElement = computed(() =>
+      root.value.querySelector(".letter-svg")
+    );
+    const backgroundLetterElement = computed(() =>
+      root.value.querySelector(".letter-svg-background")
+    );
+    const animate = () => animateLetter(backgroundLetterElement.value,letterElement.value, animatationTime);
+
+    onMounted(() => {
+      animate();
+    });
+    watch(() => props.letter, (/*first, second */ ) => {
       setTimeout(() => {
-        this.animate();
+        animate();
       }, 100);
-    },
+    });
+    return {
+      root,
+      backgroundLetterElement,
+      letterElement,
+      letterSVG,
+      audioSrc,
+      examples,
+      animate,
+      animatationTime,
+    };
   },
-  methods: {
-    animatePath(path) {
-      // Go!
-      path.style.strokeDashoffset = "0";
-    },
-    setBackgroundPathProps(path) {
-      path.style.stroke = "#002D38";
-    },
-    setPathProps(path) {
-      const length = path.getTotalLength();
-      // Clear any previous transition
-      path.style.transition = path.style.WebkitTransition = "none";
-      // Set up the starting positions
-      path.style.strokeDasharray = length + " " + length;
-      path.style.strokeDashoffset = length;
-      path.style.strokeWidth = "8";
-      path.style.stroke = "#00a7d0";
-      // Trigger a layout so styles are calculated & the browser
-      // picks up the starting position before animating
-      path.getBoundingClientRect();
-      // Define our transition
-      path.style.transition = path.style.WebkitTransition = `stroke-dashoffset ${this.animatationTime}s ease-in-out`;
-    },
-    animate() {
-      const bgPaths = this.$refs.backgroundLetter.querySelectorAll("path");
-      for (let i = 0; i < bgPaths.length; i++) {
-        this.setBackgroundPathProps(bgPaths[i]);
-      }
-      const paths = this.$refs.letter.querySelectorAll("path");
-      for (let i = 0; i < paths.length; i++) {
-        this.setPathProps(paths[i]);
-        if (i == 0) {
-          this.animatePath(paths[i]);
-          continue;
-        }
-        setTimeout(() => {
-          this.animatePath(paths[i]);
-        }, this.animatationTime * 1000);
-      }
-    },
-  },
-  mounted() {
-    this.animate();
-  },
+
 };
 </script>
 <style lang="less">
-.letter{
+.letter {
   overflow: auto;
 }
 .letter-svg {
@@ -106,6 +86,7 @@ export default {
   position: relative;
   height: 50vh;
   min-width: 908px; //width of longest character "ഞ്ഞ"
+  .letter-svg-background,
   .letter-svg {
     position: absolute;
     top: 0;
@@ -136,7 +117,6 @@ export default {
   audio {
     width: 200px;
     height: 2.4em;
-
   }
 }
 
@@ -154,7 +134,7 @@ export default {
 
 @media (max-width: 1024px) {
   .letter-container {
-    transform: scale(1.0);
+    transform: scale(1);
     transform-origin: 0% 0% 0px;
   }
 }
