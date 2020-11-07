@@ -5,7 +5,7 @@
       <div class="letter-svg" v-html="letterSVG" />
     </div>
     <div class="actions">
-      <button @click="animate">Write</button>
+      <button @click="animate">✍️ Write</button>
       <audio
         controls
         :src="audioSrc"
