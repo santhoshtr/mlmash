@@ -24,7 +24,6 @@
 </template>
 
 <script lang="ts">
-// eslint-disable-next-line no-unused-vars
 import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
 import { animateLetter } from "../animateLetter";
 import { defineComponent } from "vue";
