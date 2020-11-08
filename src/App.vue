@@ -20,10 +20,12 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import malayalam from "./assets/malayalam.json";
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
 
-export default {
+export default defineComponent({
   name: "App",
   data: () => ({
     letters: malayalam.letters,
@@ -31,12 +33,13 @@ export default {
   }),
   setup() {
     if (sessionStorage.redirect) {
+      const router = useRouter();
       const redirect = sessionStorage.redirect;
       delete sessionStorage.redirect;
-      this.$router.push(redirect);
+      router.push(redirect);
     }
   },
-};
+});
 </script>
 
 <style lang="less">

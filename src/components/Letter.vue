@@ -23,40 +23,55 @@
   </section>
 </template>
 
-<script>
-import { ref, onMounted, computed, watch } from "vue";
-import {animateLetter} from  "../animateLetter"
+<script lang="ts">
+// eslint-disable-next-line no-unused-vars
+import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
+import { animateLetter } from "../animateLetter";
+import { defineComponent } from "vue";
 
-export default {
+interface Lesson {
+  pronunciation?: string;
+  examples?: Array<string>;
+}
+
+export default defineComponent({
   name: "Letter",
   props: {
     letter: String,
-    lesson: Object,
+    lesson: Object as PropType<Lesson>,
   },
   setup(props) {
-    const animatationTime = 5; // 5s
-    const root = ref(null);
+    const animatationTime: number = 5; // 5s
+    const root:Ref = ref(null);
     const letterSVG = computed(() =>
       require(`!html-loader!@/assets/svgs/${props.letter}.svg`)
     );
     const audioSrc = computed(() => props.lesson?.pronunciation);
     const examples = computed(() => props.lesson?.examples);
     const letterElement = computed(() =>
-      root.value.querySelector(".letter-svg")
+      root?.value?.querySelector(".letter-svg")
     );
     const backgroundLetterElement = computed(() =>
-      root.value.querySelector(".letter-svg-background")
+      root?.value?.querySelector(".letter-svg-background")
     );
-    const animate = () => animateLetter(backgroundLetterElement.value,letterElement.value, animatationTime);
+    const animate = () =>
+      animateLetter(
+        backgroundLetterElement.value,
+        letterElement.value,
+        animatationTime
+      );
 
     onMounted(() => {
       animate();
     });
-    watch(() => props.letter, (/*first, second */ ) => {
-      setTimeout(() => {
-        animate();
-      }, 100);
-    });
+    watch(
+      () => props.letter,
+      (/*first, second */) => {
+        setTimeout(() => {
+          animate();
+        }, 100);
+      }
+    );
     return {
       root,
       backgroundLetterElement,
@@ -68,8 +83,7 @@ export default {
       animatationTime,
     };
   },
-
-};
+});
 </script>
 <style lang="less">
 .letter {

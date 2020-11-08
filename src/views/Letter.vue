@@ -8,8 +8,9 @@
 import Letter from "@/components/Letter.vue";
 import malayalam from "../assets/malayalam.json";
 import { computed } from "vue";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "Home",
   components: {
     Letter,
@@ -21,5 +22,5 @@ export default {
   props: {
     letter: String
   },
-};
+});
 </script>
