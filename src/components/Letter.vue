@@ -36,15 +36,16 @@ interface Lesson {
 export default defineComponent({
   name: "Letter",
   props: {
-    letter: String,
+    letter: {
+      type: String,
+      default: ""
+    },
     lesson: Object as PropType<Lesson>,
   },
   setup(props) {
     const animatationTime: number = 5; // 5s
-    const root:Ref = ref(null);
-    const letterSVG = computed(() =>
-      require(`!html-loader!@/assets/svgs/${props.letter}.svg`)
-    );
+    const root: Ref = ref(null);
+    const letterSVG = ref("");
     const audioSrc = computed(() => props.lesson?.pronunciation);
     const examples = computed(() => props.lesson?.examples);
     const letterElement = computed(() =>
@@ -54,21 +55,31 @@ export default defineComponent({
       root?.value?.querySelector(".letter-svg-background")
     );
     const animate = () =>
+     setTimeout(() => {
       animateLetter(
         backgroundLetterElement.value,
         letterElement.value,
         animatationTime
       );
-
+       }, 100);
+    const getSVG = (letter:string) => {
+      return fetch(`/svgs/${letter}.svg`).then((response) =>
+        response.text()
+      );
+    };
     onMounted(() => {
-      animate();
+      getSVG(props.letter).then((svg) => {
+        letterSVG.value = svg;
+        animate();
+      });
     });
     watch(
       () => props.letter,
-      (/*first, second */) => {
-        setTimeout(() => {
+      (letter) => {
+        getSVG(letter).then((svg) => {
+          letterSVG.value = svg;
           animate();
-        }, 100);
+        });
       }
     );
     return {

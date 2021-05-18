@@ -13,12 +13,14 @@ const routes = [
     name: "letter",
     component: Letter,
     props: true,
-  }, {
+  },
+  {
     path: "/conjunct/:letter",
     name: "conjunct",
     component: Letter,
     props: true,
-  },{
+  },
+  {
     path: "/:catchAll(.*)",
     component: Home,
   }
