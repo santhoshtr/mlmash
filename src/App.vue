@@ -20,26 +20,18 @@
   </main>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import malayalam from "./assets/malayalam.json";
-import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
 
-export default defineComponent({
-  name: "App",
-  data: () => ({
-    letters: malayalam.letters,
-    conjuncts: malayalam.conjuncts,
-  }),
-  setup() {
-    if (sessionStorage.redirect) {
-      const router = useRouter();
-      const redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      router.push(redirect);
-    }
-  },
-});
+const letters = malayalam.letters;
+const conjuncts = malayalam.conjuncts;
+if (sessionStorage.redirect) {
+  const router = useRouter();
+  const redirect = sessionStorage.redirect;
+  delete sessionStorage.redirect;
+  router.push(redirect);
+}
 </script>
 
 <style lang="less">

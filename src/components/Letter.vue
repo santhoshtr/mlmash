@@ -23,77 +23,58 @@
   </section>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
 import { animateLetter } from "../animateLetter";
-import { defineComponent } from "vue";
 
 interface Lesson {
   pronunciation?: string;
   examples?: Array<string>;
 }
 
-export default defineComponent({
-  name: "Letter",
-  props: {
-    letter: {
-      type: String,
-      default: ""
-    },
-    lesson: Object as PropType<Lesson>,
+const props = defineProps({
+  letter: {
+    type: String,
+    default: "",
   },
-  setup(props) {
-    const animatationTime: number = 5; // 5s
-    const root: Ref = ref(null);
-    const letterSVG = ref("");
-    const audioSrc = computed(() => props.lesson?.pronunciation);
-    const examples = computed(() => props.lesson?.examples);
-    const letterElement = computed(() =>
-      root?.value?.querySelector(".letter-svg")
-    );
-    const backgroundLetterElement = computed(() =>
-      root?.value?.querySelector(".letter-svg-background")
-    );
-    const animate = () =>
-     setTimeout(() => {
-      animateLetter(
-        backgroundLetterElement.value,
-        letterElement.value,
-        animatationTime
-      );
-       }, 100);
-    const getSVG = (letter:string) => {
-      return fetch(`/svgs/${letter}.svg`).then((response) =>
-        response.text()
-      );
-    };
-    onMounted(() => {
-      getSVG(props.letter).then((svg) => {
-        letterSVG.value = svg;
-        animate();
-      });
-    });
-    watch(
-      () => props.letter,
-      (letter) => {
-        getSVG(letter).then((svg) => {
-          letterSVG.value = svg;
-          animate();
-        });
-      }
-    );
-    return {
-      root,
-      backgroundLetterElement,
-      letterElement,
-      letterSVG,
-      audioSrc,
-      examples,
-      animate,
-      animatationTime,
-    };
-  },
+  lesson: Object as PropType<Lesson>,
 });
+
+const animatationTime: number = 5; // 5s
+const root: Ref = ref(null);
+const letterSVG = ref("");
+const audioSrc = computed(() => props.lesson?.pronunciation);
+const examples = computed(() => props.lesson?.examples);
+const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
+const backgroundLetterElement = computed(() =>
+  root?.value?.querySelector(".letter-svg-background")
+);
+const animate = () =>
+  setTimeout(() => {
+    animateLetter(
+      backgroundLetterElement.value,
+      letterElement.value,
+      animatationTime
+    );
+  }, 100);
+const getSVG = (letter: string) => {
+  return fetch(`/svgs/${letter}.svg`).then((response) => response.text());
+};
+onMounted(() => {
+  getSVG(props.letter).then((svg) => {
+    letterSVG.value = svg;
+    animate();
+  });
+});
+watch(
+  () => props.letter,
+  (letter) => {
+    getSVG(letter).then((svg) => {
+      letterSVG.value = svg;
+      animate();
+    });
+  }
+);
 </script>
 <style lang="less">
 .letter {
