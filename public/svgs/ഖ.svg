@@ -1,147 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="381.3735"
-   height="266.14026"
-   id="svg2992"
-   version="1.1"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="ഖ.svg">
-  <defs
-     id="defs5498">
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect845"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect3006"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0-8"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0-8-6"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0-8-6-6"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0-8-6-1"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0-8-6-1-2"
-       effect="spiro"
-       lpeversion="0" />
-    <inkscape:path-effect
-       is_visible="true"
-       id="path-effect4141-37-3-0-8-6-9"
-       effect="spiro"
-       lpeversion="0" />
-  </defs>
-  <sodipodi:namedview
-     inkscape:window-height="1015"
-     inkscape:window-width="1920"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
-     pagecolor="#ffffff"
-     id="base"
-     showgrid="true"
-     showguides="true"
-     inkscape:guide-bbox="true"
-     inkscape:zoom="1"
-     inkscape:cx="174.71565"
-     inkscape:cy="170.63662"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
-     inkscape:current-layer="layer1-1"
-     inkscape:window-maximized="1"
-     inkscape:document-rotation="0">
-    <sodipodi:guide
-       orientation="horizontal"
-       position="-772.58689,602.97205"
-       id="guide5596" />
-    <inkscape:grid
-       type="xygrid"
-       id="grid3769"
-       empspacing="3"
-       visible="true"
-       enabled="true"
-       snapvisiblegridlinesonly="true"
-       spacingx="4"
-       units="px"
-       dotted="true"
-       spacingy="4"
-       originx="-772.58689"
-       originy="-801.39295" />
-    <sodipodi:guide
-       orientation="0,1"
-       position="-1812.5869,1602.972"
-       id="guide2985" />
-  </sodipodi:namedview>
-  <metadata
-     id="metadata5594">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-772.58689,246.60705)">
-    <g
-       id="layer1-1"
-       inkscape:label="Layer 1"
-       transform="translate(-1807.6223,-466.8953)">
-      <path
-         sodipodi:nodetypes="caaaaccc"
-         inkscape:connector-curvature="0"
-         id="path4139-9-6-5-7-2"
-         d="m 2618.3039,435.86242 c -4.4418,-9.75741 -6.2756,-20.68768 -5.2613,-31.36044 1.0142,-10.67277 4.8739,-21.06198 11.0741,-29.80809 6.2002,-8.7461 14.7257,-15.82774 24.4608,-20.3182 9.7351,-4.49046 20.6561,-6.37878 31.3338,-5.41784 15.1476,1.36321 29.7052,8.57846 39.9138,19.85207 10.2086,11.27361 15.9522,26.50012 15.6659,41.70628 -0.2863,15.20616 -6.615,30.22774 -17.3436,41.0076 -10.7287,10.77985 -25.7471,17.18467 -40.9545,17.39881 -16.8031,0.23661 -33.2648,-6.94733 -45.798,-18.14189 -12.5332,-11.19456 -21.3236,-26.16579 -26.8113,-42.04924 -13.0115,-37.65989 -7.1395,-81.47138 15.8546,-114.01117 11.497,-16.2699 26.997,-29.70173 44.7765,-38.68963 17.7794,-8.9879 37.808,-13.50695 57.722,-12.93695 25.55,0.73132 50.7857,9.94744 70.7936,25.85398 20.008,15.90653 34.6765,38.41459 41.1494,63.14185 6.473,24.72726 4.7143,51.53552 -4.9335,75.20523 -9.6479,23.6697 -27.1312,44.06856 -49.0457,57.22491 l 162.3142,0.0515 0.868,-226.78295"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:35;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         inkscape:path-effect="#path-effect845"
-         inkscape:original-d="m 2618.3039,435.86242 c 0,0 27.8974,-98.06326 61.6074,-86.90457 37.9721,12.56959 33.6723,103.36364 -2.7184,119.96476 -28.6023,13.04809 -68.5615,-29.01489 -72.6093,-60.19113 -8.7371,-67.29395 51.6174,-177.93269 118.3531,-165.63775 75.0329,13.82357 160.361,149.76543 57.9638,221.42597 l 162.3142,0.0515 0.868,-226.78295" />
-    </g>
+<?xml version="1.0"?>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1019.825760" height="1024.000000" viewBox="0 0 1019.825760 1024.000000">
+
+  <g transform="translate(384.275742 206.944794)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
+    <text font-size="9.962646">vc</text>
   </g>
+  <g transform="translate(905.822556 822.659271)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
+    <text font-size="9.962646">bottom</text>
+  </g>
+  <g transform="translate(911.066803 821.690674)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
+    <text font-size="9.962646">right</text>
+  </g>
+  <path d="M95.742081 512.000031C222.315445 417.070007,402.942062 507.383331,402.942062 665.600021C402.942062 745.382370,354.244659 819.200012,280.062073 819.200012C140.608063 819.200012,58.909988 666.579971,81.918732 512.000031C106.348907 347.870346,227.572983 210.770340,389.118713 204.800049C558.847229 198.527344,696.318695 339.860809,696.318695 512.000031C696.318695 643.273773,606.514099 752.807587,491.518707 819.200012" style="stroke:rgb(80.000305%,80.000305%,80.000305%); stroke-width: 2.000000;stroke-linejoin: round;stroke-miterlimit: 10.000000;fill: none;"></path>
+  <path d="M491.518707 819.200012C630.420761 768.643219,782.694748 869.756805,921.596802 819.200012C1019.468491 762.693924,969.766144 628.291107,921.596802 512.000031C880.104126 411.827866,867.734390 298.092743,921.596802 204.800049" style="stroke:rgb(80.000305%,80.000305%,80.000305%); stroke-width: 2.000000;stroke-linejoin: round;stroke-miterlimit: 10.000000;fill: none;"></path>
 </svg>

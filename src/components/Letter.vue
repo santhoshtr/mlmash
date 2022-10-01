@@ -1,9 +1,6 @@
 <template>
   <section class="letter" ref="root">
-    <div class="letter-container">
-      <div class="letter-svg-background" v-html="letterSVG" />
-      <div class="letter-svg" v-html="letterSVG" />
-    </div>
+
     <div class="actions">
       <button @click="animate">✍️ Write</button>
       <audio
@@ -19,6 +16,10 @@
       <div class="example" v-for="example in examples" :key="example">
         {{ example }}
       </div>
+    </div>
+    <div class="letter-container">
+      <div class="letter-svg-background" v-html="letterSVG" />
+      <div class="letter-svg" v-html="letterSVG" />
     </div>
   </section>
 </template>
@@ -40,21 +41,17 @@ const props = defineProps({
   lesson: Object as PropType<Lesson>,
 });
 
-const animatationTime: number = 5; // 5s
+
 const root: Ref = ref(null);
 const letterSVG = ref("");
 const audioSrc = computed(() => props.lesson?.pronunciation);
 const examples = computed(() => props.lesson?.examples);
 const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
-const backgroundLetterElement = computed(() =>
-  root?.value?.querySelector(".letter-svg-background")
-);
+
 const animate = () =>
   setTimeout(() => {
     animateLetter(
-      backgroundLetterElement.value,
-      letterElement.value,
-      animatationTime
+      letterElement.value
     );
   }, 100);
 const getSVG = (letter: string) => {
@@ -77,9 +74,7 @@ watch(
 );
 </script>
 <style lang="less">
-.letter {
-  overflow: auto;
-}
+
 .letter-svg {
   svg {
     height: 100%;
@@ -88,14 +83,42 @@ watch(
   }
 }
 .letter-container {
+  display: grid;
+  grid-template-rows: auto;
   position: relative;
-  height: 50vh;
-  min-width: 908px; //width of longest character "ഞ്ഞ"
+  height: 65vh;
+
+  .letter-svg-background {
+    path{
+      fill: none !important;
+      fill-rule: evenodd !important;
+      stroke: rgb(0, 45, 56) !important;
+      stroke-width: 50 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+      stroke-miterlimit: 4 !important;
+      stroke-dasharray: none !important;
+      stroke-opacity: 1 !important;
+    }
+  }
+  .letter-svg {
+    path {
+      stroke-width: 8px !important;
+      stroke: #00a7d0 !important;
+    }
+  }
   .letter-svg-background,
   .letter-svg {
     position: absolute;
     top: 0;
     left: 0;
+    height: 100% !important;
+    width: 100%;
+    svg {
+      height: 100% !important;
+      width: 100%;
+    }
+
   }
 }
 .actions {
