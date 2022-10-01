@@ -65,7 +65,7 @@ body {
 }
 
 #app {
-  font-family: Helvetica, "Manjari", Arial, sans-serif;
+  font-family: Helvetica, "Nupuram", "Manjari", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--primary-color--dark);
@@ -166,6 +166,13 @@ main {
   }
 
 
+}
+
+@font-face {
+    font-family: 'Nupuram Regular';
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Regular.woff2?v=1.100) format('woff2');
 }
 
 @supports not (font-palette: --custom) {
