@@ -87,6 +87,7 @@ header {
   .title {
     color: #ffffff;
     text-decoration: none;
+    font-family: 'Nupuram Color', sans-serif;
   }
   .title h1 {
     display: inline-flex;
@@ -163,5 +164,36 @@ main {
       display: inline-flex;
     }
   }
+
+
 }
+
+@supports not (font-palette: --custom) {
+    @font-face {
+      font-family: 'Nupuram Color';
+      font-display: swap;
+      font-weight: 400;
+      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Color-v0.woff2?v=1.100) format('woff2');
+    }
+    @font-face {
+      font-family: 'Nupuram Arrows Color';
+      font-display: swap;
+      font-weight: 400;
+      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Arrows-Color-v0.woff2?v=1.100) format('woff2');
+    }
+  }
+  @supports (font-palette: --custom) {
+    @font-face {
+      font-family: 'Nupuram Color';
+      font-display: swap;
+      font-weight: 400;
+      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Color-v1.woff2?v=1.100) format('woff2');
+    }
+    @font-face {
+      font-family: 'Nupuram Arrows Color';
+      font-display: swap;
+      font-weight: 400;
+      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Arrows-Color-v1.woff2?v=1.100) format('woff2');
+    }
+  }
 </style>

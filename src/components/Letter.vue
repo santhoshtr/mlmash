@@ -21,7 +21,11 @@
       <div class="letter-svg-background" v-html="letterSVG" />
       <div class="letter-svg" v-html="letterSVG" />
     </div>
-  </section>
+    <div class="letter-arrow-container">
+      {{letter}}
+    </div>
+
+    </section>
 </template>
 
 <script setup lang="ts">
@@ -158,6 +162,12 @@ watch(
     font-size: 1em;
     padding: 4px;
   }
+}
+
+.letter-arrow-container {
+  font-family: 'Nupuram Arrows Color', sans-serif;
+  font-size: 60vw;
+  text-align: center;
 }
 
 @media (max-width: 1024px) {
