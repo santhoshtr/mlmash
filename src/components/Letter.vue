@@ -107,7 +107,7 @@ watch(
   }
   .letter-svg {
     path {
-      stroke-width: 8px !important;
+      stroke-width: 18px !important;
       stroke: #00a7d0 !important;
     }
   }
