@@ -1,21 +1,17 @@
 <template>
   <header>
     <router-link to="/" class="title"
-      ><h1>Learn to write Malayalam</h1></router-link
+      ><h1>Learn to write മലയാളം</h1></router-link
     >
   </header>
   <main class="container">
     <router-view />
     <nav class="nav">
-      <h3>Letters</h3>
       <div v-for="letter in letters" :key="letter">
-        <router-link :to="`/letter/${letter}`">{{ letter }}</router-link>
+        <router-link class="letter-link" :to="`/letter/${letter}`">{{ letter }}</router-link>
       </div>
       <br />
-      <h3>Conjuncts</h3>
-      <div v-for="conjunct in conjuncts" :key="conjunct">
-        <router-link :to="`/conjunct/${conjunct}`">{{ conjunct }}</router-link>
-      </div>
+
     </nav>
   </main>
 </template>
@@ -25,7 +21,7 @@ import malayalam from "./assets/malayalam.json";
 import { useRouter } from "vue-router";
 
 const letters = malayalam.letters;
-const conjuncts = malayalam.conjuncts;
+
 if (sessionStorage.redirect) {
   const router = useRouter();
   const redirect = sessionStorage.redirect;
@@ -116,7 +112,16 @@ footer {
   order: -1;
   flex: 0 0 10%;
 }
-
+.letter-link {
+    text-decoration: none;
+    color: var(--primary-color--dark);
+    font-size: 1.2em;
+    display: inline-flex;
+    padding: 2px 4px;
+  }
+.letter-link:hover {
+    color: var(--primary-color);
+  }
 .nav {
   overflow: auto;
   max-width: 100vw;
@@ -130,14 +135,7 @@ footer {
     display: inline-flex;
     padding: 2px 4px;
   }
-  a {
-    text-decoration: none;
-    color: var(--primary-color--dark);
-    font-size: 1.2em;
-  }
-  a:hover {
-    color: var(--primary-color);
-  }
+
 }
 
 .content {

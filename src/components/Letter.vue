@@ -21,6 +21,10 @@
       <div class="letter-svg-background" v-html="letterSVG" />
       <div class="letter-svg" v-html="letterSVG" />
     </div>
+    <h3 v-if="conjunctsForLetter.length">Conjuncts</h3>
+      <template v-for="conjunct in conjunctsForLetter" :key="conjunct">
+        <router-link  class="letter-link"  :to="`/conjunct/${conjunct}`">{{ conjunct }}</router-link>
+      </template>
     <div class="letter-arrow-container">
       {{letter}}
     </div>
@@ -29,9 +33,10 @@
 </template>
 
 <script setup lang="ts">
+import malayalam from "../assets/malayalam.json";
 import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
 import { animateLetter } from "../animateLetter";
-
+const conjuncts = malayalam.conjuncts;
 interface Lesson {
   pronunciation?: string;
   examples?: Array<string>;
@@ -51,7 +56,7 @@ const letterSVG = ref("");
 const audioSrc = computed(() => props.lesson?.pronunciation);
 const examples = computed(() => props.lesson?.examples);
 const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
-
+const conjunctsForLetter =computed(() => conjuncts.filter((c)=>c.indexOf(props.letter)==0));
 const animate = () =>
   setTimeout(() => {
     animateLetter(
