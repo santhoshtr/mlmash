@@ -118,9 +118,9 @@ footer {
 }
 
 .nav {
-  padding: 1em;
   overflow: auto;
   max-width: 100vw;
+  min-width: 20vw;
   // border-bottom: 1px solid var(--primary-color--dark);
   h3 {
     margin: 0;
@@ -145,7 +145,7 @@ footer {
   margin: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 450px) {
 
 main {
   display: grid;
