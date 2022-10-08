@@ -117,7 +117,12 @@ footer {
     color: var(--primary-color--dark);
     font-size: 1.2em;
     display: inline-flex;
-    padding: 2px 4px;
+    padding: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
   }
 .letter-link:hover {
     color: var(--primary-color);
@@ -133,7 +138,7 @@ footer {
   }
   div {
     display: inline-flex;
-    padding: 2px 4px;
+    padding: 0;
   }
 
 }
