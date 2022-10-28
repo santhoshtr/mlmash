@@ -175,7 +175,7 @@ main {
     font-family: 'Nupuram Regular';
     font-display: swap;
     font-weight: 400;
-    src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Regular.woff2?v=1.100) format('woff2');
+    src: url(https://smc.gitlab.io/fonts/Nupuram/fonts/Nupuram/webfonts/Nupuram-VF.woff2) format('woff2-variations');
 }
 
 @supports not (font-palette: --custom) {
@@ -183,13 +183,13 @@ main {
       font-family: 'Nupuram Color';
       font-display: swap;
       font-weight: 400;
-      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Color-v0.woff2?v=1.100) format('woff2');
+      src: url(https://smc.gitlab.io/fonts/Nupuram/fonts/Nupuram-Color/webfonts/Nupuram-Color.colrv0.woff2) format('woff2');
     }
     @font-face {
       font-family: 'Nupuram Arrows Color';
       font-display: swap;
       font-weight: 400;
-      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Arrows-Color-v0.woff2?v=1.100) format('woff2');
+      src: url(https://smc.gitlab.io/fonts/Nupuram/fonts/Nupuram-Arrows-Color/webfonts/Nupuram-Arrows-Color.colrv0.woff2) format('woff2');
     }
   }
   @supports (font-palette: --custom) {
@@ -197,13 +197,13 @@ main {
       font-family: 'Nupuram Color';
       font-display: swap;
       font-weight: 400;
-      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Color-v1.woff2?v=1.100) format('woff2');
+      src: url(https://smc.gitlab.io/fonts/Nupuram/fonts/Nupuram-Color/webfonts/Nupuram-Color.colrv1.woff2) format('woff2');
     }
     @font-face {
       font-family: 'Nupuram Arrows Color';
       font-display: swap;
       font-weight: 400;
-      src: url(https://santhoshtr.gitlab.io/nupuram/fonts/webfonts/Nupuram-Arrows-Color-v1.woff2?v=1.100) format('woff2');
+      src: url(https://smc.gitlab.io/fonts/Nupuram/fonts/Nupuram-Arrows-Color/webfonts/Nupuram-Arrows-Color.colrv1.woff2) format('woff2');
     }
   }
 </style>
