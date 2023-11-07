@@ -1,5 +1,5 @@
 <template>
-  <div class="content" ref="root">
+  <div class="content card col-9@lg col-12" ref="root">
     <letter :id="letter" :letter="letter" :lesson="lesson" />
   </div>
 </template>

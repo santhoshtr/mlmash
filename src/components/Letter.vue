@@ -1,35 +1,56 @@
 <template>
-  <section class="letter" ref="root">
-
-    <div class="actions">
-      <button @click="animate">✍️ Write</button>
-      <audio
-        controls
-        :src="audioSrc"
-        :ref="audioSrc"
-        v-if="audioSrc"
-        :id="`player-${letter}`"
-      ></audio>
-    </div>
-    <div class="examples">
-      <h3>Examples</h3>
-      <div class="example" v-for="example in examples" :key="example">
-        {{ example }}
+  <section class="letter grid" ref="root">
+    <section class="letter-svg col-12 grid">
+      <div class="letter-container col-11">
+        <div class="letter-svg-background" v-html="letterSVG" v-if="viewmode==='draw'"/>
+        <div class="letter-svg" v-html="letterSVG" v-if="viewmode==='draw'"/>
+        <div class="letter-arrow-container" v-if="viewmode==='arrows'">
+          <svg class="nupuram-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"> {{ letter }}</text>
+            </svg>
+       </div>
+       <div class="letter-arrow-container" v-if="viewmode==='dots'">
+          <svg class="nupuram-dots" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"> {{ letter }}</text>
+            </svg>
+       </div>
       </div>
-    </div>
-    <div class="letter-container">
-      <div class="letter-svg-background" v-html="letterSVG" />
-      <div class="letter-svg" v-html="letterSVG" />
-    </div>
-    <h3 v-if="conjunctsForLetter.length">Conjuncts</h3>
-      <template v-for="conjunct in conjunctsForLetter" :key="conjunct">
-        <router-link  class="letter-link"  :to="`/conjunct/${conjunct}`">{{ conjunct }}</router-link>
-      </template>
-    <div class="letter-arrow-container">
-      {{letter}}
+      <section class="sidebar col-1">
+        <div class="toolbar grid">
+          <button @click="animate" class="button col-12">
+            <span class="material-symbols-outlined">stylus_note</span>
+          </button>
+          <button @click="arrows" class="button col-12">
+            <span class="material-symbols-outlined">step</span>
+          </button>
+          <button @click="dots" class="button col-12">
+            <span class="material-symbols-outlined">page_control</span>
+          </button>
+          <button @click="playSound" class="button col-12">
+            <span class="material-symbols-outlined">record_voice_over</span>
+          </button>
+        </div>
+      </section>
+    </section>
+    <nav class="conjuncts col-5@lg col-3" v-if="conjunctsForLetter.length > 1">
+      <span v-for="conjunct in conjunctsForLetter" :key="conjunct">
+        <router-link class="letter-link" :to="`/conjunct/${conjunct}`">{{
+          conjunct
+        }}</router-link>
+      </span>
+    </nav>
+    <div class="examples col-12 grid" v-if="examples?.length">
+      <span class="example col-1@lg col-3"> Examples: </span>
+      <span
+        class="example col-1@lg col-3"
+        v-for="example in examples"
+        :key="example"
+      >
+        {{ example }}
+      </span>
     </div>
 
-    </section>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -50,21 +71,31 @@ const props = defineProps({
   lesson: Object as PropType<Lesson>,
 });
 
-
 const root: Ref = ref(null);
 const letterSVG = ref("");
+const viewmode = ref("draw");
 const audioSrc = computed(() => props.lesson?.pronunciation);
 const examples = computed(() => props.lesson?.examples);
 const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
-const conjunctsForLetter =computed(() => conjuncts.filter((c)=>c.indexOf(props.letter)==0));
+const conjunctsForLetter = computed(() =>
+  conjuncts.filter((c) => c.indexOf(props.letter) == 0)
+);
 const animate = () =>
+  viewmode.value="draw";
   setTimeout(() => {
-    animateLetter(
-      letterElement.value
-    );
+    animateLetter(letterElement.value);
   }, 100);
 const getSVG = (letter: string) => {
   return fetch(`/svgs/${letter}.svg`).then((response) => response.text());
+};
+const playSound = () => {
+  new Audio(audioSrc.value).play();
+};
+const arrows = () => {
+  viewmode.value="arrows";
+};
+const dots = () => {
+  viewmode.value="dots";
 };
 onMounted(() => {
   getSVG(props.letter).then((svg) => {
@@ -83,7 +114,6 @@ watch(
 );
 </script>
 <style lang="less">
-
 .letter-svg {
   svg {
     height: 100%;
@@ -91,18 +121,19 @@ watch(
     max-width: 100%;
   }
 }
+
 .letter-container {
   display: grid;
   grid-template-rows: auto;
   position: relative;
-  height: 65vh;
+  height: 70vh;
 
   .letter-svg-background {
-    path{
+    path {
       fill: none !important;
       fill-rule: evenodd !important;
-      stroke: rgb(0, 45, 56) !important;
-      stroke-width: 50 !important;
+      stroke: var(--blue-8) !important;
+      stroke-width: 60 !important;
       stroke-linecap: round !important;
       stroke-linejoin: round !important;
       stroke-miterlimit: 4 !important;
@@ -113,7 +144,7 @@ watch(
   .letter-svg {
     path {
       stroke-width: 18px !important;
-      stroke: #00a7d0 !important;
+      stroke: var(--blue-1) !important;
     }
   }
   .letter-svg-background,
@@ -127,52 +158,36 @@ watch(
       height: 100% !important;
       width: 100%;
     }
-
   }
 }
-.actions {
-  display: flex;
-  align-items: center;
-  margin: 1em 0;
-  h1 {
-    height: 1.4em;
-    line-height: 1.4;
-    margin: 0;
-  }
-  button {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: 800;
-    padding: 0 8px;
-    margin: 0 8px;
-    border: 1px solid var(--primary-color);
-    height: 2.4em;
-  }
-  button:first-child {
-    margin-left: 0;
-  }
-  audio {
-    width: 200px;
-    height: 2.4em;
-  }
+audio {
+  width: 100%;
 }
 
+.toolbar button{
+  margin: var(--size-1);
+}
 .examples {
-  display: flex;
-  flex-direction: column;
-  h3 {
-    margin: 0;
-  }
-  .example {
-    font-size: 1em;
-    padding: 4px;
-  }
+  margin: var(--size-3) var(--size-1);
 }
 
-.letter-arrow-container {
-  font-family: 'Nupuram Arrows Color', sans-serif;
-  font-size: 60vw;
-  text-align: center;
+svg {
+  width: 100%;
+  fill: currentColor;
+}
+
+.nupuram-color {
+  font-family: "Nupuram Arrows Color", sans-serif;
+}
+
+.nupuram-dots {
+  font-family: "Nupuram Dots", sans-serif;
+}
+
+
+.letter-arrow-container{
+  width: 100%;
+  height: 100%;
 }
 
 </style>

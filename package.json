@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
+    "open-props": "^1.6.10",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },
