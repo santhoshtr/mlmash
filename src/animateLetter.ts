@@ -15,17 +15,13 @@ const setupLetterSVGPath = (path: SVGPathElement, animatationTime: number) => {
 const animatePath = (path: SVGPathElement) =>
   (path.style.strokeDashoffset = "0");
 
-const animateLetter = (
-  letterElement: Element
-) => {
-
-  const paths: NodeListOf<SVGPathElement> = letterElement.querySelectorAll(
-    "path"
-  );
-  const endTime =[];
+const animateLetter = (letterElement: Element) => {
+  const paths: NodeListOf<SVGPathElement> =
+    letterElement.querySelectorAll("path");
+  const endTime = [];
   const speed = 0.001; // Relative to path length
   for (let i: number = 0; i < paths.length; i++) {
-    const animatationDuration = paths[i].getTotalLength()*speed;
+    const animatationDuration = paths[i].getTotalLength() * speed;
     setupLetterSVGPath(paths[i], animatationDuration);
 
     if (i == 0) {
@@ -33,11 +29,11 @@ const animateLetter = (
       endTime[i] = animatationDuration;
       continue;
     }
-    endTime[i] =  endTime[i-1] + animatationDuration;
+    endTime[i] = endTime[i - 1] + animatationDuration;
 
     setTimeout(() => {
       animatePath(paths[i]);
-    }, endTime[i-1] * 1000);
+    }, endTime[i - 1] * 1000);
   }
 };
 
