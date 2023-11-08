@@ -6,7 +6,8 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: Letter,
+    props: true,
   },
   {
     path: "/letter/:letter",
@@ -22,7 +23,7 @@ const routes = [
   },
   {
     path: "/:catchAll(.*)",
-    component: Home,
+    component: Letter,
   }
 ];
 

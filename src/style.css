@@ -23,7 +23,18 @@
     -webkit-touch-callout: none;
     -webkit-tap-highcolor: transparent;
     -webkit-tap-highcolor: transparent;
+
+     /* dark */
+     --brand: var(--blue-6);
+     --text-1: var(--gray-3);
+     --surface-1: #101828;
+     --surface-2: #1D2939;
+     --body-background-color: var(--surface-1-dark);
+     --text-color: #D0D5DD;
+     --border-color: #475467;
+     --header-background-color: var(--gray-0);
     height: 100%;
+    accent-color:  var(--blue-6);;
   }
 
 
@@ -36,22 +47,36 @@
     background-image: var(--body-background-image);
     background-color: var(--body-background-color);
     background-repeat: repeat;
+    padding:  var(--size-fluid-1) var(--size-fluid-1);
   }
 
 
   button {
     color: var(--text-color);
-    background-color: var(--body-background-color);
+    background-color: var(--brand);
   }
 
   header {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: var(--header-background-color);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border-bottom: 1px solid var(--border-color); */
     z-index: var(--layer-2);
     padding:  var(--size-fluid-1) var(--size-fluid-1);
+  }
+
+  header .brand {
+    color: var(--brand);
+    padding: 0;
+    margin: 0;
+    line-height: 0.5;
+  }
+
+  a.header-container {
+    text-decoration: none;
+  }
+
+  header .brand-secondary {
+    color: var(--brand);
+    padding: 0;
+    margin: 0;
   }
 
   .navbar {
@@ -64,13 +89,32 @@
     font-size: 2rem;
   }
 
+
+.letter-link {
+  text-decoration: none;
+  color: var(--brand);
+  padding: var(--size-3);
+  place-content: center;
+
+}
+
+.letter-nav {
+   line-height: 1.25;
+   font-size: var(--font-size-fluid-1);
+}
+
+.content {
+  padding: var(--size-fluid-2);
+  margin: 0;
+}
+
   .card {
     /* backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%); */
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--surface-2);
     border-radius: var(--radius-1);
     border: var(--border-size-1) solid var(--border-color);
-    box-shadow: var(--shadow-3);
+
     padding: var(--size-fluid-2);
   }
 
@@ -80,70 +124,5 @@
     color:  var(--text-color);
 
   }
-  html {
-    /* light */
-    --brand-light: var(--orange-6);
-    --surface-1-light: var(--gray-0);
-    --surface-2-light: var(--gray-2);
-    --text-color-light: var(--gray-12);
-    --meta-text-color-light: var(--orange-7);
-    --header-background-color-light: var(--gray-0);
 
-    /* dark */
-    --brand-dark: var(--blue-3);
-    --text-1-dark: var(--gray-3);
-    --surface-1-dark: var(--gray-9);
-    --surface-2-dark: var(--gray-8);
-    --body-background-color-dark: var(--gray-9);
-    --body-background-image-dark: url("../images/bg-dark.svg");
-    --text-color-dark: var(--gray-0);
-    --border-color: var(--gray-3);
-    --meta-text-color-dark: var(--blue-4);
-    --header-background-color-dark: var(--gray-0);
-  }
-
-  :root {
-    color-scheme: light;
-    /* set defaults */
-    --brand: var(--brand-light);
-    --text-color: var(--text-color-light);
-    --body-background-color: var(--surface-1-light);
-    --meta-text-color: var(--meta-text-color-light);
-    --header-background-color: var(header-background-color-light);
-    --border-color: var(--gray-3);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      --brand: var(--brand-dark);
-      --body-background-color: var(--surface-1-dark);
-      --text-color: var(--text-color-dark);
-      --border-color: var(--gray-3);
-      --header-background-color: var(header-background-color-dark);
-    }
-  }
-
-  [color-scheme="light"] {
-    color-scheme: light;
-    --brand: var(--brand-light);
-    --body-background-image: var(--body-background-image-light);
-    --body-background-color: var(--surface-1-light);
-    --surface-1-color: var(--surface-1-light);
-    --text-color: var(--text-color-light);
-    --header-background-color: var(header-background-color-light);
-    --surface-2-color: var(--surface-2-light);
-  }
-
-  [color-scheme="dark"] {
-    color-scheme: dark;
-    --brand: var(--brand-dark);
-    --body-background-image: var(--body-background-image-dark);
-    --body-background-color: var(--surface-1-dark);
-    --text-color: var(--text-color-dark);
-    --border-color: var(--gray-3);
-    --header-background-color: var(header-background-color-dark);
-    --surface-1-color: var(--surface-1-dark);
-    --surface-2-color: var(--surface-2-dark);
-  }
 }

@@ -2,18 +2,44 @@
   <section class="letter grid" ref="root">
     <section class="letter-svg col-12 grid">
       <div class="letter-container col-11">
-        <div class="letter-svg-background" v-html="letterSVG" v-if="viewmode==='draw'"/>
-        <div class="letter-svg" v-html="letterSVG" v-if="viewmode==='draw'"/>
-        <div class="letter-arrow-container" v-if="viewmode==='arrows'">
-          <svg class="nupuram-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"> {{ letter }}</text>
-            </svg>
-       </div>
-       <div class="letter-arrow-container" v-if="viewmode==='dots'">
-          <svg class="nupuram-dots" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"> {{ letter }}</text>
-            </svg>
-       </div>
+        <div
+          class="letter-svg-background"
+          v-html="letterSVG"
+          v-if="viewmode === 'draw'"
+        />
+        <div class="letter-svg" v-html="letterSVG" v-if="viewmode === 'draw'" />
+        <div class="letter-arrow-container" v-if="viewmode === 'arrows'">
+          <svg
+            class="nupuram-color"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 30 20"
+          >
+            <text
+              x="50%"
+              y="50%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              {{ letter }}
+            </text>
+          </svg>
+        </div>
+        <div class="letter-arrow-container" v-if="viewmode === 'dots'">
+          <svg
+            class="nupuram-dots"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 30 20"
+          >
+            <text
+              x="50%"
+              y="50%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              {{ letter }}
+            </text>
+          </svg>
+        </div>
       </div>
       <section class="sidebar col-1">
         <div class="toolbar grid">
@@ -32,13 +58,7 @@
         </div>
       </section>
     </section>
-    <nav class="conjuncts col-5@lg col-3" v-if="conjunctsForLetter.length > 1">
-      <span v-for="conjunct in conjunctsForLetter" :key="conjunct">
-        <router-link class="letter-link" :to="`/conjunct/${conjunct}`">{{
-          conjunct
-        }}</router-link>
-      </span>
-    </nav>
+
     <div class="examples col-12 grid" v-if="examples?.length">
       <span class="example col-1@lg col-3"> Examples: </span>
       <span
@@ -49,7 +69,6 @@
         {{ example }}
       </span>
     </div>
-
   </section>
 </template>
 
@@ -66,7 +85,7 @@ interface Lesson {
 const props = defineProps({
   letter: {
     type: String,
-    default: "",
+    default: "അ",
   },
   lesson: Object as PropType<Lesson>,
 });
@@ -80,39 +99,45 @@ const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
 const conjunctsForLetter = computed(() =>
   conjuncts.filter((c) => c.indexOf(props.letter) == 0)
 );
-const animate = () =>
-  viewmode.value="draw";
+
+const animate = () => {
+  viewmode.value = "draw";
   setTimeout(() => {
+    console.log(`Animating ${props.letter}`)
     animateLetter(letterElement.value);
-  }, 100);
+  }, 10);
+}
+
 const getSVG = (letter: string) => {
   return fetch(`/svgs/${letter}.svg`).then((response) => response.text());
 };
+
 const playSound = () => {
   new Audio(audioSrc.value).play();
 };
 const arrows = () => {
-  viewmode.value="arrows";
+  viewmode.value = "arrows";
 };
+
 const dots = () => {
-  viewmode.value="dots";
+  viewmode.value = "dots";
 };
-onMounted(() => {
-  getSVG(props.letter).then((svg) => {
-    letterSVG.value = svg;
-    animate();
-  });
-});
+
+const init = async (letter: string) => {
+  const svg: string = await getSVG(letter);
+  letterSVG.value = svg;
+  animate();
+};
+
+onMounted(() => init(props.letter));
+
 watch(
   () => props.letter,
-  (letter) => {
-    getSVG(letter).then((svg) => {
-      letterSVG.value = svg;
-      animate();
-    });
-  }
+  (letter) => init(letter)
 );
+
 </script>
+
 <style lang="less">
 .letter-svg {
   svg {
@@ -132,7 +157,7 @@ watch(
     path {
       fill: none !important;
       fill-rule: evenodd !important;
-      stroke: var(--blue-8) !important;
+      stroke: var(--brand) !important;
       stroke-width: 60 !important;
       stroke-linecap: round !important;
       stroke-linejoin: round !important;
@@ -164,7 +189,7 @@ audio {
   width: 100%;
 }
 
-.toolbar button{
+.toolbar button {
   margin: var(--size-1);
 }
 .examples {
@@ -184,10 +209,8 @@ svg {
   font-family: "Nupuram Dots", sans-serif;
 }
 
-
-.letter-arrow-container{
+.letter-arrow-container {
   width: 100%;
   height: 100%;
 }
-
 </style>

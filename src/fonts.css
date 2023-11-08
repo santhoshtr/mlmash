@@ -34,3 +34,7 @@
       src: url(https://smc.gitlab.io/fonts/Nupuram/fonts/Nupuram-Arrows-Color/webfonts/Nupuram-Arrows-Color.colrv1.woff2) format('woff2');
     }
   }
+
+  .nupuram {
+    font-family: "Nupuram";
+  }
