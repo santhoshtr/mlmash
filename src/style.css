@@ -1,6 +1,3 @@
-@import "open-props/style" layer(base);
-@import "open-props/normalize" layer(base);
-@import "open-props/buttons" layer(base);
 @import url(./grid.css) layer(grid);
 @import url(./fonts.css) layer(fonts);
 /* @import "https://smc.org.in/fonts/manjari.css" layer(font); */
@@ -24,19 +21,18 @@
     -webkit-tap-highcolor: transparent;
     -webkit-tap-highcolor: transparent;
 
-     /* dark */
-     --brand: var(--blue-6);
-     --text-1: var(--gray-3);
-     --surface-1: #101828;
-     --surface-2: #1D2939;
-     --body-background-color: var(--surface-1-dark);
-     --text-color: #D0D5DD;
-     --border-color: #475467;
-     --header-background-color: var(--gray-0);
+    /* dark */
+    --brand: var(--blue-6);
+    --text-1: var(--gray-3);
+    --surface-1: #101828;
+    --surface-2: #1d2939;
+    --body-background-color: var(--surface-1);
+    --text-color: #d0d5dd;
+    --border-color: #475467;
+    --header-background-color: var(--gray-0);
     height: 100%;
-    accent-color:  var(--blue-6);;
+    accent-color: var(--blue-6);
   }
-
 
   body {
     font-size: 100%;
@@ -44,22 +40,15 @@
     max-height: 100vh;
     /* overflow: hidden; */
     margin: 0;
-    background-image: var(--body-background-image);
     background-color: var(--body-background-color);
     background-repeat: repeat;
-    padding:  var(--size-fluid-1) var(--size-fluid-1);
-  }
-
-
-  button {
-    color: var(--text-color);
-    background-color: var(--brand);
+    padding: 0 var(--size-fluid-1);
   }
 
   header {
     /* border-bottom: 1px solid var(--border-color); */
     z-index: var(--layer-2);
-    padding:  var(--size-fluid-1) var(--size-fluid-1);
+    padding: var(--size-fluid-1) var(--size-fluid-1);
   }
 
   header .brand {
@@ -89,28 +78,26 @@
     font-size: 2rem;
   }
 
+  .letter-link {
+    text-decoration: none;
+    color: var(--brand);
+    padding: var(--size-3);
+    place-content: center;
+  }
 
-.letter-link {
-  text-decoration: none;
-  color: var(--brand);
-  padding: var(--size-3);
-  place-content: center;
+  .letter-nav {
+    line-height: 1.25;
+    font-size: var(--font-size-fluid-1);
+  }
 
-}
-
-.letter-nav {
-   line-height: 1.25;
-   font-size: var(--font-size-fluid-1);
-}
-
-.content {
-  padding: var(--size-fluid-2);
-  margin: 0;
-}
+  .content {
+    padding: var(--size-fluid-2);
+    margin: 0;
+  }
 
   .card {
     /* backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%); */
+  -webkit-backdrop-filter: blur(16px) saturate(180%); */
     background-color: var(--surface-2);
     border-radius: var(--radius-1);
     border: var(--border-size-1) solid var(--border-color);
@@ -119,10 +106,7 @@
   }
 
   footer {
-
-    padding:  var(--size-fluid-1) var(--size-fluid-1);
-    color:  var(--text-color);
-
+    padding: var(--size-fluid-1) var(--size-fluid-1);
+    color: var(--text-color);
   }
-
 }

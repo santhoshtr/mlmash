@@ -201,13 +201,6 @@ svg {
   fill: currentColor;
 }
 
-.nupuram-color {
-  font-family: "Nupuram Arrows Color", sans-serif;
-}
-
-.nupuram-dots {
-  font-family: "Nupuram Dots", sans-serif;
-}
 
 .letter-arrow-container {
   width: 100%;
