@@ -73,10 +73,9 @@
 </template>
 
 <script setup lang="ts">
-import malayalam from "../assets/malayalam.json";
 import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
 import { animateLetter } from "../animateLetter";
-const conjuncts = malayalam.conjuncts;
+
 interface Lesson {
   pronunciation?: string;
   examples?: Array<string>;
@@ -96,9 +95,6 @@ const viewmode = ref("draw");
 const audioSrc = computed(() => props.lesson?.pronunciation);
 const examples = computed(() => props.lesson?.examples);
 const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
-const conjunctsForLetter = computed(() =>
-  conjuncts.filter((c) => c.indexOf(props.letter) == 0)
-);
 
 const animate = () => {
   viewmode.value = "draw";
