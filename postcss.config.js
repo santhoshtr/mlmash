@@ -1,7 +1,7 @@
-const postcssJitProps = require('postcss-jit-props');
-const OpenProps = require('open-props');
+import postcssJitProps from 'postcss-jit-props';
+import OpenProps from 'open-props';
 
-module.exports = {
+export default {
     plugins: [
         postcssJitProps(OpenProps),
     ]
