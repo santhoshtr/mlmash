@@ -243,6 +243,7 @@
 }
 
 @media (min-width: 32rem) {
+
   .grid-auto-xs\@xs {
     --col-min-width: 8rem;
   }
@@ -453,6 +454,11 @@
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   }
 
+  .hide\@sm {
+    display: none;
+  }
+
+
   .col-1\@sm {
     --span: 1;
   }
@@ -637,6 +643,10 @@
 
   .grid-auto-cols\@md {
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+
+  .hide\@md {
+    display: none;
   }
 
   .col-1\@md {
@@ -829,6 +839,11 @@
     --span: 1;
   }
 
+  .hide\@lg {
+    display: none;
+  }
+
+
   .col-start-1\@lg {
     grid-column-start: 1;
   }
@@ -987,6 +1002,11 @@
 }
 
 @media (min-width: 90rem) {
+  .hide\@xs {
+    display: none;
+  }
+
+
   .grid-auto-xs\@xl {
     --col-min-width: 8rem;
   }

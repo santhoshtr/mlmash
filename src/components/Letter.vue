@@ -1,7 +1,26 @@
 <template>
-  <section class="letter grid" ref="root">
+  <section class="letter" ref="root">
+    <section class="sidebar col-6@lg col-12">
+      <div class="toolbar grid">
+        <button @click="animate" class="button col-3">
+          <span class="material-symbols-outlined">stylus_note</span>
+        </button>
+        <button @click="arrows" class="button col-3">
+          <span class="material-symbols-outlined">step</span>
+        </button>
+        <button @click="dots" class="button col-3">
+          <span class="material-symbols-outlined">page_control</span>
+        </button>
+        <button @click="playSound" class="button col-3">
+          <span class="material-symbols-outlined">record_voice_over</span>
+        </button>
+      </div>
+    </section>
     <section class="letter-svg col-12 grid">
       <div class="letter-container col-11">
+        <letter-nav
+          v-if="viewmode === 'letternav'"
+        />
         <div
           class="letter-svg-background"
           v-html="letterSVG"
@@ -41,23 +60,9 @@
           </svg>
         </div>
       </div>
-      <section class="sidebar col-1">
-        <div class="toolbar grid">
-          <button @click="animate" class="button col-12">
-            <span class="material-symbols-outlined">stylus_note</span>
-          </button>
-          <button @click="arrows" class="button col-12">
-            <span class="material-symbols-outlined">step</span>
-          </button>
-          <button @click="dots" class="button col-12">
-            <span class="material-symbols-outlined">page_control</span>
-          </button>
-          <button @click="playSound" class="button col-12">
-            <span class="material-symbols-outlined">record_voice_over</span>
-          </button>
-        </div>
-      </section>
     </section>
+
+
 
     <div class="examples col-12 grid" v-if="examples?.length">
       <span class="example col-1@lg col-3"> Examples: </span>
@@ -75,6 +80,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
 import { animateLetter } from "../animateLetter";
+import LetterNav from "@/components/LetterNav.vue";
 
 interface Lesson {
   pronunciation?: string;
@@ -115,6 +121,8 @@ const arrows = () => {
   viewmode.value = "arrows";
 };
 
+
+
 const dots = () => {
   viewmode.value = "dots";
 };
@@ -123,6 +131,7 @@ const init = async (letter: string) => {
   const svg: string = await getSVG(letter);
   letterSVG.value = svg;
   animate();
+  document.getElementById(`#${letter}`)?.scrollIntoView();
 };
 
 onMounted(() => init(props.letter));
@@ -135,7 +144,20 @@ watch(
 </script>
 
 <style lang="less">
+
+section.letter{
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto auto;
+  grid-template-areas:
+      "svg"
+      "toolbar"
+      "examples";
+}
+
 .letter-svg {
+  grid-area: svg;
   svg {
     height: 100%;
     max-height: 100%;
@@ -147,7 +169,6 @@ watch(
   display: grid;
   grid-template-rows: auto;
   position: relative;
-  height: 70vh;
 
   .letter-svg-background {
     path {
@@ -185,8 +206,15 @@ audio {
   width: 100%;
 }
 
+.toolbar {
+  grid-area: toolbar;
+}
 .toolbar button {
   margin: var(--size-1);
+  background-color: var(--brand);
+  color: var(--text-1);
+  padding: var(--size-2);
+  cursor: pointer;
 }
 .examples {
   margin: var(--size-3) var(--size-1);

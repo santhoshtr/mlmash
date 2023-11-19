@@ -1,19 +1,6 @@
 <template>
-  <section class="card col-start-2@lg col-3@lg col-12">
-    <nav class="letter-nav grid">
-      <template v-for="letter in letters" :key="letter">
-        <router-link class="letter-link col-2" :to="`/letter/${letter}`">{{
-          letter
-        }}</router-link>
-      </template>
-    </nav>
-    <nav class="letter-nav">
-      <span v-for="conjunct in conjunctsForLetter" :key="conjunct">
-        <router-link class="letter-link col-2" :to="`/conjunct/${conjunct}`">{{
-          conjunct
-        }}</router-link>
-      </span>
-    </nav>
+  <section class="card letter-nav-container col-start-2@lg col-3@lg col-12  ">
+    <letter-nav/>
   </section>
   <div class="content card col-start-5@lg col-7@lg col-12" ref="root">
     <letter :id="letter" :letter="letter" :lesson="lesson" />
@@ -22,10 +9,10 @@
 
 <script setup>
 import Letter from "@/components/Letter.vue";
+import LetterNav from "@/components/LetterNav.vue";
 import malayalam from "../assets/malayalam.json";
-import { computed } from "vue";
-const letters = malayalam.letters;
-const conjuncts = malayalam.conjuncts;
+import { computed,onMounted,watch } from "vue";
+
 
 const props = defineProps({
   letter: {
@@ -34,9 +21,29 @@ const props = defineProps({
   },
 });
 
-const conjunctsForLetter = computed(() =>
-  conjuncts.filter((c) => c.indexOf(props.letter) == 0)
+
+const init = ( ) => {
+  document.body.classList.remove('nav-open')
+};
+
+onMounted(() => init( ));
+
+watch(
+  () => props.letter,
+  (letter) => init( )
 );
+
 
 const lesson = computed(() => malayalam.lessons[props.letter]);
 </script>
+
+<style>
+.nav-open div.content{
+  display: none;
+}
+
+.nav-open .letter-nav-container {
+  display: grid;
+}
+
+</style>
