@@ -14,7 +14,7 @@
         <button @click="playSound" class="button col-2">
           <span class="material-symbols-outlined">record_voice_over</span>
         </button>
-        <button @click="clearCanvas" class="button col-2"> <span class="material-symbols-outlined">clear</span></button>
+        <button @click="clearCanvas" class="button col-2" v-if="viewmode === 'dots' || viewmode === 'arrows'"> <span class="material-symbols-outlined" >clear</span></button>
       </div>
     </section>
     <section class="letter-svg col-12 grid">
@@ -62,7 +62,7 @@
             </text>
           </svg>
         </div>
-        <drawing-canvas ref="drawingCanvas"/>
+        <drawing-canvas ref="drawingCanvas" v-if="viewmode === 'dots' || viewmode === 'arrows'"/>
       </div>
     </section>
     <div class="examples col-12 grid" v-if="examples?.length">
