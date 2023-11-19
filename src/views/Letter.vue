@@ -17,7 +17,7 @@ import { computed,onMounted,watch } from "vue";
 const props = defineProps({
   letter: {
     type: String,
-    default: "അ",
+    default: "റ",
   },
 });
 
