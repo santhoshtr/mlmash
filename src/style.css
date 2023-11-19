@@ -32,6 +32,7 @@
     --header-background-color: var(--gray-0);
     height: 100%;
     accent-color: var(--blue-6);
+    overflow: hidden;
   }
 
   body {
