@@ -2,18 +2,19 @@
   <section class="letter" ref="root">
     <section class="sidebar col-6@lg col-12">
       <div class="toolbar grid">
-        <button @click="animate" class="button col-3">
+        <button @click="animate" class="button col-2">
           <span class="material-symbols-outlined">stylus_note</span>
         </button>
-        <button @click="arrows" class="button col-3">
+        <button @click="arrows" class="button col-2">
           <span class="material-symbols-outlined">step</span>
         </button>
-        <button @click="dots" class="button col-3">
+        <button @click="dots" class="button col-2">
           <span class="material-symbols-outlined">page_control</span>
         </button>
-        <button @click="playSound" class="button col-3">
+        <button @click="playSound" class="button col-2">
           <span class="material-symbols-outlined">record_voice_over</span>
         </button>
+        <button @click="clearCanvas" class="button col-2"> <span class="material-symbols-outlined">clear</span></button>
       </div>
     </section>
     <section class="letter-svg col-12 grid">
@@ -27,6 +28,7 @@
           v-if="viewmode === 'draw'"
         />
         <div class="letter-svg" v-html="letterSVG" v-if="viewmode === 'draw'" />
+
         <div class="letter-arrow-container" v-if="viewmode === 'arrows'">
           <svg
             class="nupuram-color"
@@ -43,7 +45,8 @@
             </text>
           </svg>
         </div>
-        <div class="letter-arrow-container" v-if="viewmode === 'dots'">
+
+        <div class="letter-dots-container" v-if="viewmode === 'dots'">
           <svg
             class="nupuram-dots"
             xmlns="http://www.w3.org/2000/svg"
@@ -59,11 +62,9 @@
             </text>
           </svg>
         </div>
+        <drawing-canvas ref="drawingCanvas"/>
       </div>
     </section>
-
-
-
     <div class="examples col-12 grid" v-if="examples?.length">
       <span class="example col-1@lg col-3"> Examples: </span>
       <span
@@ -81,6 +82,7 @@
 import { ref, onMounted, computed, watch, PropType, Ref } from "vue";
 import { animateLetter } from "../animateLetter";
 import LetterNav from "@/components/LetterNav.vue";
+import DrawingCanvas from "@/components/DrawingCanvas.vue";
 
 interface Lesson {
   pronunciation?: string;
@@ -96,6 +98,7 @@ const props = defineProps({
 });
 
 const root: Ref = ref(null);
+const drawingCanvas: Ref = ref(null);
 const letterSVG = ref("");
 const viewmode = ref("draw");
 const audioSrc = computed(() => props.lesson?.pronunciation);
@@ -104,6 +107,7 @@ const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
 
 const animate = () => {
   viewmode.value = "draw";
+  clearCanvas()
   setTimeout(() => {
     console.log(`Animating ${props.letter}`)
     animateLetter(letterElement.value);
@@ -117,14 +121,19 @@ const getSVG = (letter: string) => {
 const playSound = () => {
   new Audio(audioSrc.value).play();
 };
+
 const arrows = () => {
   viewmode.value = "arrows";
+  clearCanvas()
 };
 
-
+const clearCanvas=() =>{
+    drawingCanvas.value.clearCanvas();
+}
 
 const dots = () => {
   viewmode.value = "dots";
+  clearCanvas()
 };
 
 const init = async (letter: string) => {
@@ -132,6 +141,7 @@ const init = async (letter: string) => {
   letterSVG.value = svg;
   animate();
   document.getElementById(`#${letter}`)?.scrollIntoView();
+  clearCanvas()
 };
 
 onMounted(() => init(props.letter));
@@ -206,6 +216,7 @@ audio {
   width: 100%;
 }
 
+
 .toolbar {
   grid-area: toolbar;
 }
@@ -226,8 +237,10 @@ svg {
 }
 
 
+.letter-dots-container,
 .letter-arrow-container {
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 </style>

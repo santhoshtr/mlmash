@@ -30,7 +30,7 @@ onMounted(() => init( ));
 
 watch(
   () => props.letter,
-  (letter) => init( )
+  ( ) => init( )
 );
 
 
