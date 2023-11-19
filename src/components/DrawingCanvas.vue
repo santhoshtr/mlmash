@@ -16,6 +16,21 @@
 </template>
 
 <script>
+const getCoordinates = (event, canvas) => {
+  let rect = canvas.getBoundingClientRect();
+  if (event.type.indexOf("touch") >= 0) {
+    return {
+      x: event.targetTouches[0].clientX - rect.left,
+      y: event.targetTouches[0].clientY - rect.top,
+    };
+  } else {
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+    };
+  }
+};
+
 export default {
   name: "DrawingCanvas",
   data() {
@@ -35,13 +50,13 @@ export default {
       this.ctx.lineWidth = this.strokeWidth;
       this.ctx.strokeStyle = this.strokeColor;
       this.ctx.lineCap = "round";
-
-      this.ctx.moveTo(event.offsetX, event.offsetY);
+      const { x, y } = getCoordinates(event, this.$refs.canvas);
+      this.ctx.moveTo(x, y);
     },
     draw(event) {
       if (!this.drawing) return;
-
-      this.ctx.lineTo(event.offsetX, event.offsetY);
+      const { x, y } = getCoordinates(event, this.$refs.canvas);
+      this.ctx.lineTo(x, y);
       this.ctx.stroke();
     },
     stopDrawing() {
