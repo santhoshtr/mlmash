@@ -128,7 +128,7 @@ const arrows = () => {
 };
 
 const clearCanvas=() =>{
-    drawingCanvas.value.clearCanvas();
+    drawingCanvas.value?.clearCanvas();
 }
 
 const dots = () => {
