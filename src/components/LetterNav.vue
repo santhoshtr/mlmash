@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import Letter from "@/components/Letter.vue";
 import malayalam from "../assets/malayalam.json";
 import { computed } from "vue";
 const letters = malayalam.letters;
@@ -35,5 +34,4 @@ const conjunctsForLetter = computed(() =>
   conjuncts.filter((c) => c.indexOf(props.letter) == 0)
 );
 
-const lesson = computed(() => malayalam.lessons[props.letter]);
 </script>
