@@ -5,9 +5,7 @@
         <button @click="animate" class="button col-2">
           <span class="material-symbols-outlined">stylus_note</span>
         </button>
-        <button @click="arrows" class="button col-2">
-          <span class="material-symbols-outlined">step</span>
-        </button>
+
         <button @click="dots" class="button col-2">
           <span class="material-symbols-outlined">page_control</span>
         </button>
@@ -26,31 +24,11 @@
         v-html="letterSVG"
         v-if="viewmode === 'draw'"
       />
-      <div class="letter-svg" v-html="letterSVG" v-if="viewmode === 'draw'" />
-
-      <div class="letter-arrow-container" v-if="viewmode === 'arrows'">
-        <svg
-          class="nupuram-color"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 30 20"
-        >
-          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-            {{ letter }}
-          </text>
-        </svg>
-      </div>
-
-      <div class="letter-dots-container" v-if="viewmode === 'dots'">
-        <svg
-          class="nupuram-dots"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 30 20"
-        >
-          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-            {{ letter }}
-          </text>
-        </svg>
-      </div>
+      <div
+        :class="`letter-svg ${viewmode}`"
+        v-html="letterSVG"
+        v-if="viewmode === 'draw' || viewmode === 'dots'"
+      />
       <drawing-canvas ref="canvas" />
     </section>
     <div class="examples col-12 grid" v-if="examples?.length">
@@ -91,7 +69,9 @@ const letterSVG = ref("");
 const viewmode = ref("draw");
 const audioSrc = computed(() => props.lesson?.pronunciation);
 const examples = computed(() => props.lesson?.examples);
-const letterElement = computed(() => root?.value?.querySelector(".letter-svg"));
+const letterElement = computed(() =>
+  root?.value?.querySelector(".draw.letter-svg")
+);
 
 const animate = () => {
   viewmode.value = "draw";
@@ -108,11 +88,6 @@ const getSVG = (letter: string) => {
 
 const playSound = () => {
   new Audio(audioSrc.value).play();
-};
-
-const arrows = () => {
-  viewmode.value = "arrows";
-  clearCanvas();
 };
 
 const clearCanvas = () => {
@@ -184,6 +159,9 @@ section.letter {
       stroke-width: 18px !important;
       stroke: var(--blue-1) !important;
     }
+    text {
+      display: none;
+    }
   }
   .letter-svg-background,
   .letter-svg {
@@ -212,6 +190,7 @@ audio {
   padding: var(--size-2);
   cursor: pointer;
 }
+
 .examples {
   margin: var(--size-3) var(--size-1);
 }
@@ -221,8 +200,13 @@ svg {
   fill: currentColor;
 }
 
-.letter-dots-container,
-.letter-arrow-container {
+.dots svg path {
+  stroke-dasharray: 4 40 !important;
+  transition: none !important;
+  stroke-dashoffset: 0 !important;
+}
+
+.letter-dots-container {
   width: 100%;
   height: 100%;
   position: absolute;
