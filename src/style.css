@@ -47,6 +47,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 10vh 80vh 10vh;
+
     grid-template-areas:
       "header"
       "main"
@@ -144,7 +145,7 @@
 }
 
 
-@media (max-width: 90rem) {
+@media (max-width: 80.1rem) {
   .letter-nav-container {
     display: none;
   }
