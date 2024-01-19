@@ -1,15 +1,64 @@
-<?xml version="1.0"?>
-
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="622.331573" height="1024.000000" viewBox="0 0 622.331573 1024.000000">
-
-  <g transform="translate(417.763245 821.344757)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
-    <text font-size="9.962646">vc</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="622.331573"
+   height="1024.000000"
+   viewBox="0 0 622.331573 1024.000000"
+   id="svg16"
+   sodipodi:docname="ഠ.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.84375"
+     inkscape:cx="322.44068"
+     inkscape:cy="653.83051"
+     inkscape:window-width="1920"
+     inkscape:window-height="1012"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <g
+     transform="translate(417.763245 821.344757)"
+     style="fill: rgb(0.000000%,0.000000%,0.000000%);"
+     id="g4">
+    <text
+       font-size="9.962646"
+       id="text2">vc</text>
   </g>
-  <g transform="translate(320.915421 822.659271)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
-    <text font-size="9.962646">bottom</text>
+  <g
+     transform="translate(320.915421 822.659271)"
+     style="fill: rgb(0.000000%,0.000000%,0.000000%);"
+     id="g8">
+    <text
+       font-size="9.962646"
+       id="text6">bottom</text>
   </g>
-  <g transform="translate(326.159668 821.690674)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
-    <text font-size="9.962646">right</text>
+  <g
+     transform="translate(326.159668 821.690674)"
+     style="fill: rgb(0.000000%,0.000000%,0.000000%);"
+     id="g12">
+    <text
+       font-size="9.962646"
+       id="text10">right</text>
   </g>
-  <path d="M93.948547 436.056198C143.257217 284.302750,281.504669 173.989960,422.606216 219.837555C563.707764 265.685150,610.710068 436.190414,561.401398 587.943863C512.092728 739.697311,373.845276 850.010101,232.743729 804.162506C91.642181 758.314911,44.639877 587.809647,93.948547 436.056198" style="stroke:rgb(80.000305%,80.000305%,80.000305%); stroke-width: 2.000000;stroke-linejoin: round;stroke-miterlimit: 10.000000;fill: none;"></path>
+  <path
+     d="M 93.948547,436.0562 C 44.639877,587.80965 91.642181,758.31491 232.74373,804.16251 373.84528,850.0101 512.09273,739.69731 561.4014,587.94386 610.71007,436.19041 563.70776,265.68515 422.60622,219.83755 281.50467,173.98996 143.25722,284.30275 93.948547,436.0562"
+     style="fill:none;stroke:#cccccc;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10"
+     id="path14"
+     sodipodi:nodetypes="csssc" />
 </svg>
