@@ -1,6 +1,40 @@
-<?xml version="1.0"?>
-
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="507.402191" height="1024.000000" viewBox="0 0 507.402191 1024.000000">
-
-  <path d="M96.240601 614.400024C103.903000 504.829269,189.148117 409.600037,294.884354 409.600037C400.620590 409.600037,472.546738 504.829269,464.884338 614.400024C457.221954 723.970779,371.976837 819.200012,266.240601 819.200012C160.504364 819.200012,88.578217 723.970779,96.240601 614.400024" style="stroke:rgb(80.000305%,80.000305%,80.000305%); stroke-width: 2.000000;stroke-linejoin: round;stroke-miterlimit: 10.000000;fill: none;"></path>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="507.402191"
+   height="1024.000000"
+   viewBox="0 0 507.402191 1024.000000"
+   id="svg4"
+   sodipodi:docname="ം.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.84375"
+     inkscape:cx="223.18644"
+     inkscape:cy="764.47458"
+     inkscape:window-width="1920"
+     inkscape:window-height="1012"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 96.240601,614.40002 c -7.662384,109.57076 64.263759,204.79999 169.999999,204.79999 105.73624,0 190.98135,-95.22923 198.64374,-204.79999 7.6624,-109.57075 -64.26375,-204.79998 -169.99999,-204.79998 -105.73623,0 -190.98135,95.22923 -198.643749,204.79998"
+     style="fill:none;stroke:#cccccc;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10"
+     id="path2"
+     sodipodi:nodetypes="csssc" />
 </svg>
