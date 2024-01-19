@@ -1,6 +1,6 @@
 <template>
   <section class="card letter-nav-container col-start-2@lg col-3@lg col-12  ">
-    <letter-nav/>
+    <letter-nav :letter="letter"/>
   </section>
   <div class="content card col-start-5@lg col-7@lg col-12" ref="root">
     <letter :id="letter" :letter="letter" :lesson="lesson" />

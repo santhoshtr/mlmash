@@ -21,7 +21,7 @@
       </div>
     </section>
     <section class="letter-container col-12 grid">
-      <letter-nav v-if="viewmode === 'letternav'" />
+      <letter-nav v-if="viewmode === 'letternav'" :letter="letter" />
       <div class="letter-svg-background" v-html="letterSVG" v-if="viewmode === 'draw'" />
       <div :class="`letter-svg ${viewmode}`" v-html="letterSVG" v-if="viewmode === 'draw' || viewmode === 'dots'" />
       <drawing-canvas ref="canvas" />

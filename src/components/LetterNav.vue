@@ -8,7 +8,7 @@
       }}</router-link>
     </template>
   </nav>
-  <nav class="letter-nav">
+  <nav class="letter-nav grid">
     <span v-for="conjunct in conjunctsForLetter" :key="conjunct">
       <router-link class="letter-link col-2" :to="`/conjunct/${conjunct}`">{{
         conjunct
@@ -30,8 +30,10 @@ const props = defineProps({
   },
 });
 
-const conjunctsForLetter = computed(() =>
-  conjuncts.filter((c) => c.indexOf(props.letter) == 0)
-);
+const conjunctsForLetter = computed(() => {
+  console.log(props.letter);
+  return conjuncts.filter((c) => c.indexOf(props.letter) == 0)
+});
+
 
 </script>
