@@ -1,0 +1,24 @@
+<title>Learn to write Malayalam- {{letter}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description"
+    content="Learn to write Malayalam - A simple application to observe and learn how to write Malayalam letters.">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:title" content="{{letter}}" />
+<meta property="og:type" content="website" />
+<meta name="color-scheme" content="light dark">
+<meta property="og:url" content="https://learn.smc.org.in/letter/{{letter}}" />
+<link id="theme-style" rel="stylesheet" href="/assets/style.css" rel="preload">
+<script type="speculationrules">
+    {
+    "prefetch": [{
+        "where": {
+            "href_matches": "/letter/*"
+        },
+        "eagerness": "moderate"
+      }]
+    }
+  </script>
+<script type="module" src="/assets/main.js" defer></script>
+<script type="module" src="/assets/letter.js" defer></script>
+<script type="module" src="/assets/drawing-canvas.js" defer></script>

@@ -1,2 +1,0 @@
-/.well-known/acme-challenge/* /.well-known/acme-challenge/:rest 200
-/* /index.html 200

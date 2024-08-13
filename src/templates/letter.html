@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    {% include "header.html" %}
+</head>
+
+<body>
+    <header>
+        <div class="hamburger-packet subgrid cols-start-1 cols-end-2">
+            <input type="checkbox" style="display: none;" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <h1>Learn മലയാളം</h1>
+
+    </header>
+    <main class="main">
+        {% include "sidebar.html" %}
+        <section class="lesson">
+            <section class="practice">
+                <div class="letter-svg background">
+                    {{lesson.svg|safe}}
+                </div>
+                <div class="letter-svg foreground">
+                    {{lesson.svg|safe}}
+                </div>
+                <drawing-canvas ref="canvas" style="position: absolute;inset:0;" />
+            </section>
+            <aside class="tools">
+                <section class="examples">
+                    <h2>Examples</h2>
+                    {% for example in lesson.examples %}
+                    <span class="example">{{ example }}</span>
+                    {% endfor %}
+                </section>
+                <section class="pronunciation">
+                    <h2>Pronunciation</h2>
+                    <audio controls>
+                        <source src="/assets/{{ lesson.pronunciation }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                </section>
+                {% if lesson.related %}
+                <section class="related">
+                    <h2>See also</h2>
+
+                    {% for letter in lesson.related %}
+                    <a href="/letter/{{letter}}" class="letter-link">{{letter}}</a>
+                    {% endfor %}
+                </section>
+                {% endif %}
+            </aside>
+        </section>
+    </main>
+</body>
+
+</html>

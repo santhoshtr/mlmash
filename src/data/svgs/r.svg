@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="464.871140" height="1024.000000" viewBox="0 0 464.871140 1024.000000">
+
+  <g transform="translate(255.426987 2.095383)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
+    <text font-size="9.962646">top</text>
+  </g>
+  <g transform="translate(246.848007 822.659271)" style="fill: rgb(0.000000%,0.000000%,0.000000%);">
+    <text font-size="9.962646">bottom</text>
+  </g>
+  <path d="M81.918732 273.062546C129.035934 354.672165,127.998413 452.131989,127.998413 546.131271L127.998413 819.200012" style="stroke:rgb(80.000305%,80.000305%,80.000305%); stroke-width: 2.000000;stroke-linejoin: round;stroke-miterlimit: 10.000000;fill: none;"></path>
+  <path d="M127.998413 819.200012C127.998413 705.844727,138.857727 590.939651,182.612366 491.514206C206.644302 436.905457,291.840286 218.445465,422.911774 296.102386" style="stroke:rgb(80.000305%,80.000305%,80.000305%); stroke-width: 2.000000;stroke-linejoin: round;stroke-miterlimit: 10.000000;fill: none;"></path>
+</svg>

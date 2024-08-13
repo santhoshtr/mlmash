@@ -1,4 +1,7 @@
+public
 .DS_Store
+.venv
+ENV_DIR
 node_modules
 /dist
 

@@ -6,7 +6,6 @@ To add more letters or conjucts, add them to assets/svgs folder. The name should
 
 The SVGs are from Manjari font. You may want to scale down the svgs. Use the svgs with strokes. Outlined SVGs are not useful here.
 
-
 ## Future Ideas
 
 * Add sample words for each letter
@@ -27,27 +26,11 @@ The SVGs are from Manjari font. You may want to scale down the svgs. Use the svg
     11. ഈ ഊ ഐ ഓ ഔ
     12. അ ആ ഋ
 
-
 ## Project setup
 
-```
-npm install
-```
+In a virtual environment, install the requirements and run `make` to build the project.
 
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
+```bash
+pip install -r requirements.txt
+make
 ```

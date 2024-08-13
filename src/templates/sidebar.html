@@ -1,0 +1,27 @@
+<nav class="sidebar">
+    <section class="letter-nav">
+        <h2>Vowels</h2>
+        <div class="letters">
+            {% for letter in letters.vowels %}
+            <a href="/letter/{{letter}}" class="letter-link">{{letter}}</a>
+            {% endfor %}
+        </div>
+        <h2>Consonants</h2>
+        <div class="letters">
+
+            {% for letter in letters.consonants %}
+            <a href="/letter/{{letter}}" class="letter-link">{{letter}}</a>
+            {% endfor %}
+        </div>
+        <h2>Vowel Signs</h2>
+        <div class="letters">
+
+            {% for letter in letters.vowelsigns %}
+            <a href="/letter/{{letter}}" class="letter-link">{{letter}}</a>
+            {% endfor %}
+        </div>
+    </section>
+    {% include "themeswitcher.html" %}
+
+
+</nav>

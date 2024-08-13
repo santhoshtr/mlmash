@@ -1,0 +1,350 @@
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border-width: 0;
+    outline-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+    scrollbar-width: thin;
+    -webkit-touch-callout: none;
+    -webkit-tap-highcolor: transparent;
+    -webkit-tap-highcolor: transparent;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+@layer theme {
+  :root {
+    --layout-fluid-min: 35ch;
+    --layout-default-repeat: 3;
+    --layout-default-gap: 3vmax;
+
+    --slate-50: hsl(210, 20%, 97%);
+    --slate-100: hsl(210, 16%, 94%);
+    --slate-200: hsl(210, 19%, 85%);
+    --slate-300: hsl(210, 23%, 69%);
+    --slate-400: hsl(210, 25%, 58%);
+    --slate-500: hsl(210, 20%, 45%);
+    --slate-600: hsl(210, 22%, 35%);
+    --slate-700: hsl(210, 22%, 35%);
+    --slate-800: hsl(210, 18%, 30%);
+    --slate-900: hsl(210, 16%, 26%);
+    --slate-950: hsl(210, 18%, 14%);
+
+    --blue-50: hsl(204, 85%, 96%);
+    --blue-100: hsl(204, 70%, 93%);
+    --blue-200: hsl(204, 60%, 85%);
+    --blue-300: hsl(204, 63%, 70%);
+    --blue-400: hsl(204, 65%, 52%);
+    --blue-500: hsl(204, 65%, 52%);
+    --blue-600: hsl(204, 70%, 36%);
+    --blue-700: hsl(204, 75%, 32%);
+    --blue-800: hsl(204, 75%, 29%);
+    --blue-900: hsl(204, 70%, 25%);
+    --blue-950: hsl(204, 70%, 8%);
+
+    --accent-color: light-dark(var(--blue-500), var(--blue-500));
+    --body-background-color: light-dark(white, var(--slate-950));
+    --header-background-color: light-dark(var(--slate-100), var(--slate-900));
+    --footer-background-color: light-dark(var(--slate-100), var(--slate-900));
+
+    --link-color: light-dark(var(--blue-600), var(--blue-500));
+    --link-hover-color: light-dark(var(--blue-800), var(--blue-300));
+    --text-color: light-dark(var(--slate-950), var(--slate-50));
+    --text-secondary-color: light-dark(var(--slate-900), var(--slate-100));
+
+    --button-outline-color: light-dark(var(--blue-950), var(--blue-50));
+    --button-background-color: light-dark(var(--slate-300), var(--slate-500));
+    --button-outline-background-color: light-dark(
+      var(--blue-50),
+      var(--blue-900)
+    );
+    --button-outline-border-color: light-dark(var(--blue-400), var(--blue-700));
+    --button-hover-background-color: light-dark(
+      var(--slate-600),
+      var(--slate-600)
+    );
+    --button-active-background-color: light-dark(
+      var(--blue-700),
+      var(--blue-700)
+    );
+    --button-disabled-background-color: light-dark(
+      var(--blue-100),
+      var(--blue-950)
+    );
+
+    --border-color: light-dark(var(--slate-200), var(--slate-800));
+
+    --border-color-dim: light-dark(var(--blue-300), var(--blue-900));
+    --button-color: light-dark(var(--blue-50), var(--blue-50));
+    --button-hover-color: light-dark(var(--blue-50), var(--blue-50));
+
+    --button-border-color: light-dark(var(--blue-500), var(--blue-500));
+
+    --card-background-color: linear-gradient(
+      235deg in oklab,
+      light-dark(var(--slate-50), var(--slate-600)),
+      light-dark(var(--slate-100), var(--slate-900))
+    );
+
+    --card-color: light-dark(var(--slate-950), var(--slate-50));
+    --card-border-color: light-dark(var(--slate-200), var(--slate-800));
+    --card-shadow: light-dark(
+      hsl(210deg 23% 69%/ 60%),
+      hsl(210deg 22% 35%/ 60%)
+    );
+
+    --border-radius: 8px;
+    view-timeline-name: "View Timeline";
+  }
+}
+
+/* Dark mode */
+@media screen {
+  :root {
+    color-scheme: light dark;
+  }
+  /* Light theme */
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+
+  /* Dark theme override */
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  /* Dark theme (system preference) */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      color-scheme: dark;
+    }
+  }
+}
+
+body {
+  font-size: 100%;
+  font-family:"Inter", "Manjari", sans-serif;
+  color: var(--text-color);
+  margin: 0;
+
+  background-color: var(--body-background-color);
+  background-repeat: repeat;
+  inline-size: 100vw;
+  block-size: 100vh;
+
+  display: grid;
+  grid-template-rows: 60px auto;
+  overflow: hidden;
+
+  transition: color 0.5s, background-color 0.5s;
+}
+header {
+  background-color: var(--header-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  z-index: 1;
+  border-bottom: 1px solid var(--border-color);
+  h1 {
+    margin: 0;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: 15vw auto;
+  overflow: hidden;
+  transition: grid-template-columns 0.5s;
+  .sidebar {
+    display: grid;
+    grid-template-rows: auto 2lh;
+    padding: 1rem;
+    background-color: var(--header-background-color);
+    transition: transform 0.5s;
+    overflow: auto;
+    h2 {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .letters {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 2.5rem);
+      align-content: start;
+      gap: 0.25rem;
+    }
+  }
+  .lesson {
+    display: grid;
+    grid-template-columns: auto 15vw;
+
+    .practice {
+      padding: 1rem;
+      position: relative;
+      cursor: crosshair;
+      .letter-svg {
+        position: absolute;
+        inset: 0;
+        svg {
+          position: absolute;
+          inset: 0;
+          max-width: 100%;
+          text {
+            display: none;
+          }
+        }
+
+        &.background {
+          path {
+            fill: none !important;
+            fill-rule: evenodd !important;
+            stroke: var(--blue-500) !important;
+            stroke-width: 60 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+            stroke-miterlimit: 4 !important;
+            stroke-dasharray: none !important;
+            stroke-opacity: 1 !important;
+          }
+        }
+        &.foreground {
+          path {
+            stroke-width: 18px !important;
+            stroke: var(--blue-100) !important;
+          }
+        }
+      }
+    }
+    .tools {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      gap: 1rem;
+      border: 0;
+      background-color: var(--header-background-color);
+      overflow: auto;
+      > * {
+        width: 100%;
+      }
+      h2 {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      audio {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.letter-link {
+  text-decoration: none;
+  padding: 0.5em;
+  margin: auto;
+  transition: color 0.25s, background-color 0.25s;
+  color: var(--text-color);
+  &:hover {
+    color: var(--button-color);
+    background-color: var(--button-background-color);
+  }
+}
+
+.examples {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5em;
+  > .example {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: color 0.25s, background-color 0.25s;
+    &:hover {
+      color: var(--button-color);
+      background-color: var(--button-background-color);
+    }
+  }
+}
+
+/* Menu */
+.hamburger {
+  display: none;
+  justify-self: start;
+  margin: 1em;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    margin-bottom: 5px;
+    transition: 0.3s;
+  }
+}
+
+#menu-toggle:checked {
+  + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    grid-template-columns: 1fr;
+    .sidebar {
+
+      transform: translateX(-100%);
+      z-index: 1;
+      position: fixed;
+      top: 60px;
+      bottom: 0;
+      width: clamp(200px, 50vw, 100vw);
+    }
+    .lesson {
+      grid-template-columns: 1fr;
+      grid-template-rows: 75vh auto;
+      .tools {
+        border: 0;
+      }
+    }
+  }
+  .hamburger {
+    display: block;
+  }
+
+  :root:has(#menu-toggle:checked) {
+    .sidebar {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Turn cross-document view-transitions on */
+/* Note that this at-rule is all that is needed to create the default cross-fade animation  */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Customize the default animation behavior */
+
+::view-transition-group(root) {
+  animation-duration: 0.5s;
+}
