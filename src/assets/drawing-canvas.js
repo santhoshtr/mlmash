@@ -32,6 +32,7 @@ class DrawingCanvas extends HTMLElement {
     canvas {
       width: 100%;
       height: 100%;
+      touch-action: none;
     }
     </style>
     <canvas width="${this.width}" height="${this.height}"></canvas>
@@ -54,6 +55,7 @@ class DrawingCanvas extends HTMLElement {
     this.canvas.addEventListener('touchstart', this.startDrawing.bind(this));
     this.canvas.addEventListener('touchmove', this.draw.bind(this));
     this.canvas.addEventListener('touchend', this.stopDrawing.bind(this));
+
   }
 
   midPointBetween(p1, p2) {
