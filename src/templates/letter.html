@@ -30,12 +30,15 @@
                 <drawing-canvas ref="canvas" style="position: absolute;inset:0;" />
             </section>
             <aside class="tools">
+                {% if lesson.examples %}
                 <section class="examples">
                     <h2>Examples</h2>
                     {% for example in lesson.examples %}
                     <span class="example">{{ example }}</span>
                     {% endfor %}
                 </section>
+                {% endif %}
+                {% if lesson.pronunciation %}
                 <section class="pronunciation">
                     <h2>Pronunciation</h2>
                     <audio controls>
@@ -44,6 +47,7 @@
                     </audio>
 
                 </section>
+                {% endif %}
                 {% if lesson.related %}
                 <section class="related">
                     <h2>See also</h2>
