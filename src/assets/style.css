@@ -191,10 +191,14 @@ main {
       .letter-svg {
         position: absolute;
         inset: 0;
+
         svg {
           position: absolute;
           inset: 0;
           max-width: 100%;
+          aspect-ratio: 1;
+          /* Set some spacing around to avoid clipping */
+          height: 90%;
           text {
             display: none;
           }
@@ -308,18 +312,19 @@ main {
 @media (max-width: 1200px) {
   main {
     grid-template-columns: 1fr;
-    .sidebar {
+    overflow-y: auto;
 
+    .sidebar {
       transform: translateX(-100%);
       z-index: 1;
       position: fixed;
       top: 60px;
       bottom: 0;
-      width: clamp(200px, 50vw, 100vw);
+      width: clamp(300px, 50vw, 100vw);
     }
     .lesson {
       grid-template-columns: 1fr;
-      grid-template-rows: 75vh auto;
+      grid-template-rows: 50vh auto;
       .tools {
         border: 0;
       }

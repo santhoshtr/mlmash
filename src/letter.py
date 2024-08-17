@@ -6,6 +6,10 @@ from jinja2 import (
 )
 import json
 
+from svgpathtools import svg2paths
+from lxml import etree
+
+
 @lru_cache(maxsize=None)
 def get_data():
     with open('src/data/malayalam.json', 'r') as malayalam_file:
@@ -15,10 +19,42 @@ def get_data():
 def get_svg(letter):
     svg_path = f'src/assets/svgs/{letter}.svg'
     if os.path.exists(svg_path):
-        with open(svg_path, 'r') as svg:
-            return svg.read()
+        return update_svg_viewport(svg_path)
     else:
         return None
+
+def update_svg_viewport(svg_file ):
+    # Calculate the viewport
+    paths, attributes = svg2paths(svg_file)
+
+    min_x, min_y = float('inf'), float('inf')
+    max_x, max_y = float('-inf'), float('-inf')
+
+    for path in paths:
+        xmin, xmax, ymin, ymax = path.bbox()
+        min_x = min(min_x, xmin)
+        min_y = min(min_y, ymin)
+        max_x = max(max_x, xmax)
+        max_y = max(max_y, ymax)
+
+    width = max_x - min_x
+    height = max_y - min_y
+
+    # Parse the SVG file
+    tree = etree.parse(svg_file)
+    svg = tree.getroot()
+
+    # Update the viewBox attribute
+    svg.set('viewBox', f"{min_x-100} {min_y-100} {width+200} {height+200}")
+
+    # Optionally update width and height attributes
+    svg.set('width', str(width))
+    svg.set('height', str(height+200))
+
+    # Convert the modified SVG to a string
+    svg_string = etree.tostring(tree, pretty_print=True, xml_declaration=True, encoding="utf-8").decode('utf-8')
+
+    return svg_string
 
 def render_template(template_path, data):
     env = Environment(

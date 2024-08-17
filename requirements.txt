@@ -1,2 +1,4 @@
 Jinja2
 jinja_markdown
+lxml
+svgpathtools
