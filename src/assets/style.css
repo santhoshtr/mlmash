@@ -30,7 +30,7 @@
     --slate-300: hsl(210, 23%, 69%);
     --slate-400: hsl(210, 25%, 58%);
     --slate-500: hsl(210, 20%, 45%);
-    --slate-600: hsl(210, 22%, 35%);
+    --slate-600: hsl(210, 22%, 40%);
     --slate-700: hsl(210, 22%, 35%);
     --slate-800: hsl(210, 18%, 30%);
     --slate-900: hsl(210, 16%, 26%);
@@ -58,32 +58,14 @@
     --text-color: light-dark(var(--slate-950), var(--slate-50));
     --text-secondary-color: light-dark(var(--slate-900), var(--slate-100));
 
-    --button-outline-color: light-dark(var(--blue-950), var(--blue-50));
-    --button-background-color: light-dark(var(--slate-300), var(--slate-500));
-    --button-outline-background-color: light-dark(
-      var(--blue-50),
-      var(--blue-900)
-    );
-    --button-outline-border-color: light-dark(var(--blue-400), var(--blue-700));
-    --button-hover-background-color: light-dark(
-      var(--slate-600),
-      var(--slate-600)
-    );
-    --button-active-background-color: light-dark(
-      var(--blue-700),
-      var(--blue-700)
-    );
-    --button-disabled-background-color: light-dark(
-      var(--blue-100),
-      var(--blue-950)
-    );
 
+    --button-background-color: light-dark(var(--slate-200), var(--slate-700));
+    --button-hover-background-color: light-dark(var(--slate-300), var(--slate-600));
     --border-color: light-dark(var(--slate-200), var(--slate-800));
 
     --border-color-dim: light-dark(var(--blue-300), var(--blue-900));
-    --button-color: light-dark(var(--blue-50), var(--blue-50));
-    --button-hover-color: light-dark(var(--blue-50), var(--blue-50));
-
+    --button-color: light-dark(var(--slate-700), var(--slate-200));
+    --button-hover-color: light-dark(var(--slate-800), var(--slate-200));
     --button-border-color: light-dark(var(--blue-500), var(--blue-500));
 
     --card-background-color: linear-gradient(
@@ -261,9 +243,13 @@ main {
 }
 
 .examples {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 0.5em;
+  flex-wrap: wrap;
+  >h2 {
+    width: 100%;
+    flex: 0 0 100%;
+  }
   > .example {
     padding: 0.5rem;
     border-radius: var(--border-radius);
@@ -276,6 +262,36 @@ main {
   }
 }
 
+.controls {
+  display: flex;
+  gap: 0;
+
+  button {
+    padding: 1em;
+    margin: 0;
+    border-block: 1px solid var(--border-color);
+    background-color: var(--button-background-color);
+    color: var(--button-color);
+    transition: color 0.25s, background-color 0.25s;
+    &:hover {
+      color: var(--button-hover-color);
+      background-color: var(--button-hover-background-color);
+    }
+    &:first-child {
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+    }
+    &:last-child {
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+    svg {
+      width: 1em;
+      height: 1em;
+
+    }
+  }
+
+
+}
 /* Menu */
 .hamburger {
   display: none;
@@ -327,6 +343,8 @@ main {
       grid-template-rows: 50vh auto;
       .tools {
         border: 0;
+        padding: 0.5rem;
+        gap: 0.5rem;
       }
     }
   }

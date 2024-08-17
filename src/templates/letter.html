@@ -29,35 +29,7 @@
                 </div>
                 <drawing-canvas ref="canvas" style="position: absolute;inset:0;" />
             </section>
-            <aside class="tools">
-                {% if lesson.examples %}
-                <section class="examples">
-                    <h2>Examples</h2>
-                    {% for example in lesson.examples %}
-                    <span class="example">{{ example }}</span>
-                    {% endfor %}
-                </section>
-                {% endif %}
-                {% if lesson.pronunciation %}
-                <section class="pronunciation">
-                    <h2>Pronunciation</h2>
-                    <audio controls>
-                        <source src="/assets/{{ lesson.pronunciation }}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                </section>
-                {% endif %}
-                {% if lesson.related %}
-                <section class="related">
-                    <h2>See also</h2>
-
-                    {% for letter in lesson.related %}
-                    <a href="/letter/{{letter}}" class="letter-link">{{letter}}</a>
-                    {% endfor %}
-                </section>
-                {% endif %}
-            </aside>
+        {% include "tools.html" %}
         </section>
     </main>
 </body>

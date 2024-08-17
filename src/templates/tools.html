@@ -1,0 +1,52 @@
+<aside class="tools">
+    <div class="controls">
+        <button onclick="window.location.reload();"><svg viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <g id="SVGRepo_iconCarrier">
+                    <path
+                        d="M21 3V8M21 8H16M21 8L18 5.29168C16.4077 3.86656 14.3051 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.2832 21 19.8675 18.008 20.777 14"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"></path>
+                </g>
+            </svg></button>
+        {% if lesson.pronunciation %}
+        <button onclick="document.getElementById('audio').play();">
+            <svg fill="currentColor" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <path
+                        d="M1129.432 113v1694.148H903.545l-451.772-451.773V564.773L903.545 113h225.887Zm542.545 248.057C1832.017 521.097 1920 733.882 1920 960.107c0 226.226-87.983 438.898-248.023 598.938l-79.851-79.85c138.694-138.582 214.93-323.018 214.93-519.087 0-196.183-76.236-380.506-214.93-519.2ZM338.83 564.773v790.602H169.415C75.672 1355.375 0 1279.703 0 1185.96V734.187c0-93.742 75.672-169.414 169.415-169.414H338.83Zm1093.922 36.085c95.776 97.018 148.407 224.644 148.407 359.16 0 134.628-52.631 262.253-148.407 359.272l-80.303-79.174c74.656-75.897 115.767-175.4 115.767-280.099 0-104.585-41.111-204.088-115.767-279.986Z"
+                        fill-rule="evenodd"></path>
+                </g>
+            </svg></button>
+        {% endif %}
+
+    </div>
+    {% if lesson.examples %}
+    <section class="examples">
+        <h2>Examples</h2>
+        {% for example in lesson.examples %}
+        <span class="example">{{ example }}</span>
+        {% endfor %}
+    </section>
+    {% endif %}
+    {% if lesson.pronunciation %}
+
+    <audio id="audio" style="display: none;">
+        <source src="/assets/{{ lesson.pronunciation }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    {% endif %}
+    {% if lesson.related %}
+    <section class="related">
+        <h2>See also</h2>
+
+        {% for letter in lesson.related %}
+        <a href="/letter/{{letter}}" class="letter-link">{{letter}}</a>
+        {% endfor %}
+    </section>
+    {% endif %}
+</aside>
