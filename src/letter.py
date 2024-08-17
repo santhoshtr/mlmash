@@ -54,7 +54,7 @@ if __name__ == '__main__':
             lesson["svg"] = svg
 
         first_letter = character[0]
-        related_letters = [c for c in conjuncts if c.startswith(first_letter)]
+        related_letters = [c for c in conjuncts if first_letter in c]
         if related_letters and len(related_letters) > 0:
             lesson["related"] = related_letters
 
