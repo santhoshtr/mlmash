@@ -33,9 +33,12 @@ class DrawingCanvas extends HTMLElement {
       width: 100%;
       height: 100%;
       touch-action: none;
+      /* Cell size */
       --s: 100px;
-      --_g: #0000 90deg, #d8dee910 0;
-      background: conic-gradient(from 90deg at 2px 2px, var(--_g)) 0 0 / var(--s) var(--s), conic-gradient(from 90deg at 1px 1px, var(--_g)) 0 0 / calc(var(--s) / 5) calc(var(--s) / 5);
+      /* Gradient */
+      --g: #0000 90deg, light-dark(#adb7bd20, #d8dee910) 0;
+      background: conic-gradient(from 90deg at 2px 2px, var(--g)) 0 0 / var(--s) var(--s),
+        conic-gradient(from 90deg at 1px 1px, var(--g)) 0 0 / calc(var(--s) / 5) calc(var(--s) / 5);
     }
     </style>
     <canvas width="${this.width}" height="${this.height}"></canvas>
