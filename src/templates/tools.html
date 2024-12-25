@@ -1,6 +1,6 @@
 <aside class="tools">
     <div class="controls">
-        <button onclick="window.location.reload();"><svg viewBox="0 0 24 24" fill="none"
+        <button aria-label="Refresh drawing" onclick="window.location.reload();"><svg viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
 
                 <g id="SVGRepo_iconCarrier">
@@ -10,7 +10,7 @@
                 </g>
             </svg></button>
         {% if lesson.pronunciation %}
-        <button onclick="document.getElementById('audio').play();">
+        <button aria-label="Pronunciation" onclick="document.getElementById('audio').play();">
             <svg fill="currentColor" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
