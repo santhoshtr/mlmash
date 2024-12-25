@@ -77,6 +77,8 @@ if __name__ == '__main__':
     vowelsigns=malayalam.get('vowelsigns')
     conjuncts= malayalam.get('conjuncts')
     characters = vowels + consonants+ chillus + vowelsigns+ conjuncts
+    for consonant in consonants:
+        characters.extend(consonant+vowelsign for vowelsign in ["ു","ൂ","ൃ"])
     lessons=malayalam.get('lessons')
     for character in characters:
         # For each letter render it to html and save it under the html directory
@@ -88,11 +90,18 @@ if __name__ == '__main__':
         svg = get_svg(character)
         if svg:
             lesson["svg"] = svg
-
+        else:
+            continue
         first_letter = character[0]
-        related_letters = [c for c in conjuncts if first_letter in c]
+        related_letters = [c for c in characters if first_letter in c]
         if related_letters and len(related_letters) > 0:
-            lesson["related"] = related_letters
+            lesson["related"] = []
+            for related_letter in related_letters:
+                svg = get_svg(related_letter)
+                if svg:
+                    lesson["related"].append(related_letter)
+            # sort the related letters
+            lesson["related"].sort()
 
         if lesson:
             with open(os.path.join(html_dir, 'index.html'), 'w') as htmlfile:
