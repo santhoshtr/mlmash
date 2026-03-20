@@ -4,7 +4,7 @@ pages: # the job must be named pages
   stage: deploy
   script:
     - uv sync --frozen
-    - uv run make
+    - make
     - cp src/_redirects public/_redirects
   artifacts:
     paths:

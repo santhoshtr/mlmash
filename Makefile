@@ -2,7 +2,7 @@
 
 build: clean assets
 	mkdir -p public/letter
-	python src/letter.py
+	uv run python src/letter.py
 
 assets:
 	mkdir -p public/assets
