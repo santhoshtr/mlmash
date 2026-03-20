@@ -1,11 +1,24 @@
 
+variables:
+  UV_LINK_MODE: copy
+
 pages: # the job must be named pages
   image: ghcr.io/astral-sh/uv:python3.12
   stage: deploy
+  variables:
+    UV_CACHE_DIR: .uv-cache
+  cache:
+    - key:
+        files:
+          - uv.lock
+      paths:
+        - $UV_CACHE_DIR
   script:
     - uv sync --frozen
     - make
     - cp src/_redirects public/_redirects
+  after_script:
+    - uv cache prune --ci
   artifacts:
     paths:
       - public # artifact path must be /public for GitLab Pages to pick it up
