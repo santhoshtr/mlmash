@@ -5,6 +5,7 @@ from jinja2 import (
     FileSystemLoader,
 )
 import json
+from urllib.parse import quote
 
 from svgpathtools import svg2paths
 from lxml import etree
@@ -12,23 +13,25 @@ from lxml import etree
 
 @lru_cache(maxsize=None)
 def get_data():
-    with open('src/data/malayalam.json', 'r') as malayalam_file:
+    with open("src/data/malayalam.json", "r") as malayalam_file:
         malayalam = json.load(malayalam_file)
     return malayalam
 
+
 def get_svg(letter):
-    svg_path = f'src/assets/svgs/{letter}.svg'
+    svg_path = f"src/assets/svgs/{letter}.svg"
     if os.path.exists(svg_path):
         return update_svg_viewport(svg_path)
     else:
         return None
 
-def update_svg_viewport(svg_file ):
+
+def update_svg_viewport(svg_file):
     # Calculate the viewport
     paths, attributes = svg2paths(svg_file)
 
-    min_x, min_y = float('inf'), float('inf')
-    max_x, max_y = float('-inf'), float('-inf')
+    min_x, min_y = float("inf"), float("inf")
+    max_x, max_y = float("-inf"), float("-inf")
 
     for path in paths:
         xmin, xmax, ymin, ymax = path.bbox()
@@ -45,16 +48,19 @@ def update_svg_viewport(svg_file ):
     svg = tree.getroot()
 
     # Update the viewBox attribute
-    svg.set('viewBox', f"{min_x-100} {min_y-100} {width+200} {height+200}")
+    svg.set("viewBox", f"{min_x - 100} {min_y - 100} {width + 200} {height + 200}")
 
     # Optionally update width and height attributes
-    svg.set('width', str(width))
-    svg.set('height', str(height+200))
+    svg.set("width", str(width))
+    svg.set("height", str(height + 200))
 
     # Convert the modified SVG to a string
-    svg_string = etree.tostring(tree, pretty_print=True, xml_declaration=True, encoding="utf-8").decode('utf-8')
+    svg_string = etree.tostring(
+        tree, pretty_print=True, xml_declaration=True, encoding="utf-8"
+    ).decode("utf-8")
 
     return svg_string
+
 
 def render_template(template_path, data):
     env = Environment(
@@ -67,22 +73,41 @@ def render_template(template_path, data):
     return env.get_template(template_path).render(data)
 
 
-template_path='src/templates/letter.html'
+template_path = "src/templates/letter.html"
 
-if __name__ == '__main__':
+
+def write_sitemap(generated_pages):
+    base_url = "https://learn.smc.org.in"
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for character in generated_pages:
+        encoded = quote(character, safe="")
+        lines.append("  <url>")
+        lines.append(f"    <loc>{base_url}/letter/{encoded}</loc>")
+        lines.append("    <priority>0.8</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    with open("public/sitemap.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
+if __name__ == "__main__":
     malayalam = get_data()
-    vowels=malayalam.get('vowels')
-    consonants=malayalam.get('consonants')
-    chillus=malayalam.get('chillus')
-    vowelsigns=malayalam.get('vowelsigns')
-    conjuncts= malayalam.get('conjuncts')
-    characters = vowels + consonants+ chillus + vowelsigns+ conjuncts
+    vowels = malayalam.get("vowels")
+    consonants = malayalam.get("consonants")
+    chillus = malayalam.get("chillus")
+    vowelsigns = malayalam.get("vowelsigns")
+    conjuncts = malayalam.get("conjuncts")
+    characters = vowels + consonants + chillus + vowelsigns + conjuncts
     for consonant in consonants:
-        characters.extend(consonant+vowelsign for vowelsign in ["ു","ൂ","ൃ"])
-    lessons=malayalam.get('lessons')
+        characters.extend(consonant + vowelsign for vowelsign in ["ു", "ൂ", "ൃ"])
+    lessons = malayalam.get("lessons")
+    generated_pages = []
     for character in characters:
         # For each letter render it to html and save it under the html directory
-        html_dir = os.path.join('public/letter', character)
+        html_dir = os.path.join("public/letter", character)
         os.makedirs(html_dir, exist_ok=True)
         lesson = lessons.get(character)
         if not lesson:
@@ -104,16 +129,21 @@ if __name__ == '__main__':
             lesson["related"].sort()
 
         if lesson:
-            with open(os.path.join(html_dir, 'index.html'), 'w') as htmlfile:
+            with open(os.path.join(html_dir, "index.html"), "w") as htmlfile:
                 htmlfile.write(
-                    render_template(template_path, {
-                        'letters': {
-                            'vowels':vowels,
-                            'consonants': consonants,
-                            'chillus' : chillus,
-                            'vowelsigns':vowelsigns
+                    render_template(
+                        template_path,
+                        {
+                            "letters": {
+                                "vowels": vowels,
+                                "consonants": consonants,
+                                "chillus": chillus,
+                                "vowelsigns": vowelsigns,
+                            },
+                            "letter": character,
+                            "lesson": lesson,
                         },
-                        'letter': character,
-                        'lesson': lesson
-                    })
+                    )
                 )
+            generated_pages.append(character)
+    write_sitemap(generated_pages)
