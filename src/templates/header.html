@@ -1,15 +1,19 @@
-<title>Learn to write Malayalam- {{letter}}</title>
+<title>{{letter}} - Learn to Write Malayalam | Malayalam Mash</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="content-language" content="ml">
 <meta name="description"
-    content="Learn to write Malayalam - A simple application to observe and learn how to write Malayalam letters.">
+    content="Learn to write Malayalam letter {{letter}}.{% if lesson.examples %} Examples: {{ lesson.examples|join(', ') }}.{% endif %} Practice stroke order with animated guides.">
 <link rel="icon" href="/favicon.ico">
-<meta property="og:title" content="{{letter}}" />
+<link rel="canonical" href="https://learn.smc.org.in/letter/{{letter}}">
+<meta property="og:title" content="Learn to Write Malayalam Letter {{letter}} | Malayalam Mash" />
+<meta property="og:site_name" content="Malayalam Mash" />
 <meta property="og:type" content="website" />
 <meta name="color-scheme" content="light dark">
 <meta property="og:description"
-    content="Learn to write Malayalam - A simple application to observe and learn how to write Malayalam letters." />
+    content="Learn to write Malayalam letter {{letter}}.{% if lesson.examples %} Examples: {{ lesson.examples|join(', ') }}.{% endif %} Practice with animated stroke guides." />
 <meta property="og:url" content="https://learn.smc.org.in/letter/{{letter}}" />
+<meta property="og:image" content="https://learn.smc.org.in/assets/og-image.png" />
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="stylesheet" href="https://smc.org.in/fonts/manjari.css" >
 <script type="speculationrules">
@@ -25,6 +29,43 @@
 <script type="module" src="/assets/main.js" defer></script>
 <script type="module" src="/assets/letter.js" defer></script>
 <script type="module" src="/assets/drawing-canvas.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Learn to Write Malayalam Letter {{letter}}",
+  "educationalLevel": "beginner",
+  "learningResourceType": "practice",
+  "teaches": "Malayalam writing",
+  "inLanguage": "ml",
+  "url": "https://learn.smc.org.in/letter/{{letter}}"{% if lesson.pronunciation %},
+  "associatedMedia": {
+    "@type": "AudioObject",
+    "contentUrl": "https://learn.smc.org.in/assets{{ lesson.pronunciation }}"
+  }{% endif %}{% if lesson.examples %},
+  "keywords": "{{ lesson.examples|join(', ') }}"{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://learn.smc.org.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{letter}}",
+      "item": "https://learn.smc.org.in/letter/{{letter}}"
+    }
+  ]
+}
+</script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN773W6CBZ"></script>
