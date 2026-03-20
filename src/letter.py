@@ -93,6 +93,13 @@ def write_sitemap(generated_pages):
         f.write("\n".join(lines))
 
 
+def write_robots_txt():
+    with open("public/robots.txt", "w") as f:
+        f.write("User-agent: *\n")
+        f.write("Allow: /\n")
+        f.write("Sitemap: https://learn.smc.org.in/sitemap.xml\n")
+
+
 if __name__ == "__main__":
     malayalam = get_data()
     vowels = malayalam.get("vowels")
@@ -147,3 +154,4 @@ if __name__ == "__main__":
                 )
             generated_pages.append(character)
     write_sitemap(generated_pages)
+    write_robots_txt()
