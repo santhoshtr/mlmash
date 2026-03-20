@@ -1,0 +1,11 @@
+[project]
+name = "malayalam-mash"
+version = "0.1.0"
+description = "Static site for learning to write Malayalam letters"
+requires-python = ">=3.10"
+dependencies = [
+    "Jinja2",
+    "jinja_markdown",
+    "lxml",
+    "svgpathtools",
+]

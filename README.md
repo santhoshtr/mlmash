@@ -28,9 +28,7 @@ The SVGs are from Manjari font. You may want to scale down the svgs. Use the svg
 
 ## Project setup
 
-In a virtual environment, install the requirements and run `make` to build the project.
-
 ```bash
-pip install -r requirements.txt
-make
+uv sync
+uv run make
 ```

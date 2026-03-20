@@ -1,10 +1,10 @@
 
 pages: # the job must be named pages
-  image: python:3.12
+  image: ghcr.io/astral-sh/uv:python3.12
   stage: deploy
   script:
-    - pip install -r requirements.txt
-    - make
+    - uv sync --frozen
+    - uv run make
     - cp src/_redirects public/_redirects
   artifacts:
     paths:
