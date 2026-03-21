@@ -3,7 +3,7 @@ variables:
   UV_LINK_MODE: copy
 
 pages: # the job must be named pages
-  image: ghcr.io/astral-sh/uv:python3.12
+  image: ghcr.io/astral-sh/uv:0.10.12-python3.12-trixie
   stage: deploy
   variables:
     UV_CACHE_DIR: .uv-cache
